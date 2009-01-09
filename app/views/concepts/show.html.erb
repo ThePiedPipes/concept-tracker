@@ -1,0 +1,66 @@
+<%= link_to_next_concept %>
+<%= link_to_previous_concept %>
+
+<h1><%=h @concept.title %></h1>
+<div class="status">
+	<b>Status:</b>
+	<% if @concept.status == 'Approved' %>
+  		<div class="status" style="background-color:#99FF99;">
+	<% elsif @concept.status == 'Rejected' %>
+		<div class="status" style="background-color:#FF9999;">
+	<% elsif @concept.status == 'With Compliance' %>
+		<div class="status" style="background-color:#FFFFCC;">
+	<% else %>
+		<div>
+	<% end -%>
+  
+  <%=h @concept.status %>
+</div>
+</div>
+<p>
+  <b>Summary:</b>
+  <%=h @concept.summary %>
+</p>
+
+<p>
+  <b>Consulted legal:</b>
+  <%=h @concept.consulted_legal %>
+</p>
+
+<p>
+  <b>Consulted marketing:</b>
+  <%=h @concept.consulted_marketing %>
+</p>
+
+<p>
+  <b>Vertical:</b>
+  <%=h @concept.vertical %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%=h @concept.deadline %>
+</p>
+
+<p>
+  <b>Budget:</b>
+  <%=h @concept.budget %>
+</p>
+
+<div class="comments_block">
+	<% if !@comments.blank? %>
+	<%=  content_tag(:h3, "Comments for #{@concept.title}") %>
+	  <% for comment in @comments %>
+	<%= content_tag(:span, "#{comment.user.login} - #{comment.created_at.strftime('%D')}", :class => 'signature') %>
+		<%= content_tag :div, comment.body, :class => 'comment' %>
+	  <% end %>
+		<%= render :partial => 'comment_form' %>
+	<% else %>
+	  <%= render :partial => 'comment_form' %>
+
+	<% end %>
+	
+</div>
+
+
+<%= link_to 'Edit', edit_concept_path(@concept) %> | <%= link_to 'Back', concepts_path %>

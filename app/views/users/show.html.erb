@@ -1,0 +1,31 @@
+	<div id="dashboard">
+		<h3><%=h @user.login  %></h3>
+		<table>
+			<th>Concept Title</th>
+			<th>Status</th>
+			<th>Updated Last At</th>
+		<% if !@concepts.blank? %>
+		  <% for concept in @concepts %>
+		<tr>
+			<td><%= link_to(concept.title, concept_path(concept))  %></td>
+			<% if concept.status == 'Approved' %>
+		  		<td style="background-color:#99FF99;">
+			<% elsif concept.status == 'Rejected' %>
+				<td style="background-color:#FF9999;">
+			<% elsif concept.status == 'With Compliance' %>
+				<td style="background-color:#FFFFCC;">
+			<% else %>
+				<td>
+			<% end -%>
+			<%=h concept.status %></td>
+			<td><%=h concept.updated_at.strftime('%D') %></td>
+			<td>
+				<%= link_to('delete', {:action => 'destroy', :controller => 'concepts', :id => concept}, :method => 'delete', :confirm => 'Really?') %>
+			</td>
+		</tr>
+		  <% end %>
+		<% else %>
+
+		<% end %>
+		</table>
+	</div>

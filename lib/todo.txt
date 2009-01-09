@@ -1,0 +1,8 @@
+
+iteration 1:
+completed 08/01/09 comments on concept
+TODO comments styled different by approval group users
+TODO add pending to each new concept
+completed 08/01/09 mail: mail admin on each new concept request
+
+comments on concept mail: reminders to all user group for new concept submissions

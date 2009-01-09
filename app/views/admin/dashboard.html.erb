@@ -1,0 +1,26 @@
+	<h2>Admin Dashboard</h2>
+	<div class="block_left">
+		<h3>Concepts</h3>
+		<ul>
+		<% if !@concepts.blank? %>
+		  <% for concept in @concepts %>
+			<%= content_tag :li, link_to(concept.title, concept_path(concept)) %>
+		  <% end %>
+		<% else %>
+
+		<% end %>
+		</ul>
+	</div>
+	<div class="block_right">
+		<h3>People</h3>
+		<ul>
+		<% if !@users.blank? %>
+		  <% for person in @users %>
+			<%= content_tag :li, link_to(person.login, user_path(person)) %>
+		  <% end %>
+		<% else %>
+
+		<% end %>
+		</ul>
+	</div>
+  	<div class="spacer"></div>

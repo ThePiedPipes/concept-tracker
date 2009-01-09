@@ -1,0 +1,58 @@
+	<p>Basic details</p>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  
+    <%= f.label :summary %>
+    <%= f.text_area :summary, :size => 12 %>
+  
+  	<p>Checklist from relevant departments</p>
+  		
+  		
+    <%= f.label :consulted_legal %>
+    <%= f.check_box :consulted_legal %>
+	<div class="spacer"></div>
+
+  
+  
+    <%= f.label :consulted_marketing %>
+    <%= f.check_box :consulted_marketing %>
+  	<div class="spacer"></div>
+
+
+  
+    <%= f.label :design_needed %>
+    <%= f.check_box :design_needed %>
+  	<div class="spacer"></div>
+	</fieldset>
+	
+  	<p>Miscellaneous information</p>
+
+
+  
+    <%= f.label :vertical %>
+    <%= f.text_field :vertical %>
+  	<div class="spacer"></div>
+
+  
+  
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  	<div class="spacer"></div>
+
+  
+  
+    <%= f.label :deadline %>
+    <%= f.date_select :deadline %>
+  	<div class="spacer"></div>
+
+  
+  
+    <%= f.label :budget %>
+    <%= f.text_field :budget %>
+  	<div class="spacer"></div>
+
+  
+  
+    <%= f.submit "Submit Your Concept", :class => 'mf_button' %>
+	<div class="spacer"></div>

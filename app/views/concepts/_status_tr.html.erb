@@ -1,0 +1,9 @@
+  	<% if concept.status == 'Approved' %>
+  		<tr style="background-color:#99FF99;">
+	<% elsif concept.status == 'Rejected' %>
+		<tr style="background-color:#FF9999;">
+	<% elsif concept.status == 'With Compliance' %>
+		<tr style="background-color:#FFFFCC;">
+	<% else %>
+		<tr>
+	<% end -%>

@@ -1,0 +1,275 @@
+body {
+background-color: #fff;
+color: #333;
+max-width: 70em;
+}
+
+body, p, ol, ul, td {
+font-family: "Lucida Grande", "Trebuchet MS", helvetica, sans-serif;
+font-size: 13px;
+}
+
+a {
+color: blue;
+}
+a:visited {
+color: blue;
+}
+
+#container {
+width: 90%;
+margin: 10px auto;
+background-color: #fff;
+color: #333;
+border: 1px solid #eaeaea;
+line-height: 130%;
+}
+
+#content .status {
+width:100px;
+display:inline;}
+
+#content .comments_block {
+border: 1px solid #999;
+background-color: #ffffff;
+padding: 20px;
+font-size:90%;
+margin-bottom:10px;
+}
+
+#content .comment {
+	margin-bottom:10px;
+}
+
+#content .signature {
+	font: 75% "Monaco", "Trebuchet MS", Verdana, sans-serif;
+	color:red;
+	font-size:100%;
+	
+}
+
+textarea.comment {
+	border-top: 2px solid #666666;
+	border-right: 2px solid #666666;
+	border-bottom: 3px solid #666666;
+	background-color: #FFFFCC;
+	width:100%;
+	height:150px;
+	
+}
+
+#top {
+padding: .5em;
+background-color: #ddd;
+border-bottom: 1px solid #eaeaea;
+}
+
+#top h1 {
+padding: 0;
+margin: 10px;
+}
+
+#top p.stats {
+text-align: right;
+font: 75% "Monaco", "Trebuchet MS", Verdana, sans-serif;
+}
+
+#top p.login {
+text-align: right;
+font: 75% "Monaco", "Trebuchet MS", Verdana, sans-serif;
+}
+
+#leftnav {
+float: left;
+width: 160px;
+margin: 0;
+padding: .5em;
+}
+
+#content {
+margin: 20px 10px 10px 200px;
+padding: 1em;
+}
+
+#footer {
+clear: both;
+margin: 0;
+padding: .5em;
+color: #333;
+background-color: #ddd;
+border-top: 1px solid #eaeaea;
+}
+
+#leftnav p {
+margin: 0 0 1em 0;
+}
+
+#leftnav ul, li {
+list-style: none;
+width: 100%;
+font-size: 90%;
+}
+#leftnav li {
+margin-bottom: 3px;
+}
+#leftnav a {
+padding: 1px;
+color: blue;
+}
+
+#content h2 {
+margin: 0 0 .5em 0;
+}
+#dashboard table {
+border: none;
+}
+					
+#dashboard th {
+border-top: 4px solid #666;
+width: 100%;
+font: 75% "Monaco", "Trebuchet MS", Verdana, sans-serif;
+text-align: left;
+vertical-align: top;
+padding: 2px;
+}
+				
+#dashboard td {
+border: none;
+width: 100%;
+font: 75% "Monaco", "Trebuchet MS", Verdana, sans-serif;
+vertical-align: top;
+text-align: left;
+padding: 2px;
+}
+				
+#dashboard a {
+color: blue;
+}
+
+pre {
+background-color: #eee;
+padding: 10px;
+font-size: 11px;
+}
+
+.fieldWithErrors {
+padding: 2px;
+background-color: red;
+display: table;
+}
+
+#errorExplanation {
+width: 400px;
+border: 2px solid red;
+padding: 7px;
+padding-bottom: 12px;
+margin-bottom: 20px;
+background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+text-align: left;
+font-weight: bold;
+padding: 5px 5px 5px 15px;
+font-size: 12px;
+margin: -7px;
+background-color: #c00;
+color: #fff;
+}
+
+#errorExplanation p {
+color: #333;
+margin-bottom: 0;
+padding: 5px;
+}
+
+#errorExplanation ul li {
+font-size: 12px;
+list-style: square;
+}
+
+/* Forms */
+form {
+border: 0;
+margin: 0;
+padding: 0;
+}
+
+#registration {
+margin-left: 150px;
+}
+.spacer {
+clear: both;
+height: 1px;
+}
+
+.my_form {
+width: 450px;
+padding: 14px;
+}
+
+#content {
+border: solid 2px #b7ddf2;
+background: #ebf4fb;
+}
+#stylized h1 {
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 8px;
+}
+#stylized p {
+font-size: 11px;
+color: #666666;
+margin-bottom: 20px;
+border-bottom: solid 1px #b7ddf2;
+padding-bottom: 10px;
+}
+#stylized label {
+display: block;
+font-weight: bold;
+text-align: right;
+width: 140px;
+float: left;
+}
+#stylized .small {
+color: #666666;
+display: block;
+font-size: 11px;
+font-weight: normal;
+text-align: right;
+width: 140px;
+}
+#stylized input {
+float: left;
+font-size: 12px;
+padding: 4px 2px;
+border: solid 1px #aacfe4;
+width: 200px;
+margin: 2px 0 20px 10px;
+}
+
+#stylized select {
+margin-left: 20px;
+}
+
+#stylized textarea {
+font-size: 12px;
+padding: 4px 2px;
+border: solid 1px #aacfe4;
+width: 200px;
+margin: 2px 0 20px 10px;
+}
+
+#stylized .mf_button {
+clear: both;
+margin-left: 150px;
+width: 125px;
+height: 31px;
+background: #666666 url(../images/button.png) no-repeat;
+text-align: center;
+line-height: 31px;
+color: #FFFFFF;
+font-size: 11px;
+font-weight: bold;
+}
+

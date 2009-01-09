@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  summary: MyText
+  consulted_legal: false
+  consulted_marketing: false
+  vertical: MyString
+  status: MyString
+  deadline: 2009-01-07
+  budget: 9.99
+
+two:
+  title: MyString
+  summary: MyText
+  consulted_legal: false
+  consulted_marketing: false
+  vertical: MyString
+  status: MyString
+  deadline: 2009-01-07
+  budget: 9.99

@@ -1,0 +1,5 @@
+<% form_for :comment, :url => {:controller => 'concepts', :action => 'add_comment', :id => @concept.id} do |form| %>
+		<%=  content_tag :div, content_tag(:h3, "Please submit a comment") %>
+		<%= form.text_area :body, :class => 'comment' %><br /><br />
+		<%= submit_tag "Post Your Comment" %>
+<% end -%>
