@@ -1,0 +1,34 @@
+<h2>New suggestion</h2>
+<div class="my_form" id="stylized">
+	
+
+
+
+<% form_for(@suggestion) do |f| %>
+  <%= f.error_messages %>
+
+	<%= f.label :issue_type %>
+	<%= select_tag('suggestion[issue_type]', options_for_select(["Suggestion","Bug","Comment"])) %>
+	<div class="spacer"></div>
+
+    <%= f.label "What's your idea for this tool?" %>
+    <%= f.text_area :body, :class => 'comment' %>
+
+<% if current_user && current_user.is_admin? %>
+	<p>For Admin Only</p>
+    <%= f.label :status %>
+    <%= select_tag('suggestion[status]', options_for_select(["In Progress","Rejected","On Roadmap","Completed"])) %>
+  	<div class="spacer"></div>
+<% end -%>
+
+
+
+    <%= f.submit "Create", :class => 'mf_button' %>
+
+	<div class="spacer"></div>
+
+
+<% end %>
+
+</div>
+<%= link_to 'Back', suggestions_path %>

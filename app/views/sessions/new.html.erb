@@ -1,11 +1,13 @@
 
 <div class="my_form" id="stylized">
 <% form_tag session_path do -%>
-<label for="login">Login</label>
+<label for="login">What's Your Name?</label>
 <%= text_field_tag 'login' %>
 
+<!-->
 <label for="password">Password</label><br/>
 <%= password_field_tag 'password' %>
+-->
 
 <!-- Uncomment this if you want this functionality
 <p><label for="remember_me">Remember me:</label>
@@ -14,7 +16,7 @@
 	<%= submit_tag 'Log in', :class => "mf_button" %>
 	<div class="spacer"></div>
 
-<div id="registration">or <%= link_to "Sign Up", new_user_path, :class => 'register' %></div>
+<div id="registration">or <%= link_to "First Time?", new_user_path, :class => 'register' %></div>
 <div class="spacer"></div>
 
 <% end -%>

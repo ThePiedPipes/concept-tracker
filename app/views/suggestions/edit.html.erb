@@ -1,0 +1,22 @@
+<h1>Editing suggestion</h1>
+
+<% form_for(@suggestion) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+<% if current_user && current_user.is_admin? %>
+	<p>For Admin Only</p>
+    <%= f.label :status %>
+    <%= select_tag('suggestion[status]', options_for_select(["In Progress","Rejected","On Roadmap","Completed"])) %>
+  	<div class="spacer"></div>
+<% end -%>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @suggestion %> |
+<%= link_to 'Back', suggestions_path %>

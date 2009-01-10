@@ -2,23 +2,22 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   
   has_many :concepts
+  has_many :suggestions
+  has_many :comments
   # Virtual attribute for the unencrypted password
   attr_accessor :password
-  attr_protected :team, :is_admin
 
-  validates_presence_of     :login, :email
-  validates_presence_of     :password,                   :if => :password_required?
-  validates_presence_of     :password_confirmation,      :if => :password_required?
-  validates_length_of       :password, :within => 4..40, :if => :password_required?
-  validates_confirmation_of :password,                   :if => :password_required?
+  validates_presence_of     :login #, :email
+  #validates_presence_of     :password,                   :if => :password_required?
+  #validates_presence_of     :password_confirmation,      :if => :password_required?
+  #validates_length_of       :password, :within => 4..40, :if => :password_required?
+  #validates_confirmation_of :password,                   :if => :password_required?
   validates_length_of       :login,    :within => 3..40
-  validates_length_of       :email,    :within => 3..100
-  validates_format_of       :email,
-                            :with => /^([^@\s]+)@(channel4.co.uk)$/i,
-                            :message => 'email must be from channel4.co.uk'
+  #validates_length_of       :email,    :within => 3..100
+  #validates_format_of       :email, :with => /^([^@\s]+)@(channel4.co.uk)$/i,:message => 'email must be from channel4.co.uk'
 
   validates_uniqueness_of   :login, :email, :case_sensitive => false
-  before_save :encrypt_password
+  #before_save :encrypt_password
   
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.

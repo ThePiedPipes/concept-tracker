@@ -41,7 +41,7 @@
 	<% if current_user.is_admin? %>
 	<p>For Admin Only</p>
     <%= f.label :status %>
-    <%= select_tag('concept[status]', options_for_select(["Pending","Rejected","With Compliance","Approved","Completed"])) %>
+    <%= select_from_statuses %>
   	<div class="spacer"></div>
 	<% end -%>
 

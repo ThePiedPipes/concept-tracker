@@ -10,4 +10,8 @@ class Concept < ActiveRecord::Base
   validates_presence_of :deadline, :on => :create, :message => "Deadline can't be blank"
   validates_associated :owner, :on => :create
   
+  def self.status_values
+    count(:all, :group => 'status').reject! { |i, e| i.blank? }.collect { |i,e| i}
+  end
+  
 end

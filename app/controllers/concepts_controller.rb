@@ -51,11 +51,21 @@ class ConceptsController < ApplicationController
   # POST /concepts.xml
   def create
     @concept = Concept.new(params[:concept])
+    # make sure that the status is correct
+    if params[:concept][:consulted_legal] == 0 && params[:concept][:consulted_marketing] == 1
+      @concept.attributes = {:status => 'Awaiting Compliance Approval'}
+    elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 1 
+      @concept.attributes = {:status => 'Awaiting Marketing Approval'}
+    elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 0
+      @concept.attributes = {:status => 'Awaiting Marketing & Legal Approval'}
+    else
+      @concept.attributes = {:status => 'Pending Approval'}
+    end
     @concept.owner = current_user
 
     respond_to do |format|
       if @concept.save
-        email = ReportMailer.deliver_concept_created(@concept)
+        #email = ReportMailer.deliver_concept_created(@concept)
         flash[:notice] = 'Concept was successfully created.'
         format.html { redirect_to(@concept) }
         format.xml  { render :xml => @concept, :status => :created, :location => @concept }
@@ -70,7 +80,16 @@ class ConceptsController < ApplicationController
   # PUT /concepts/1.xml
   def update
     @concept = Concept.find(params[:id])
-
+     # make sure that the status is correct
+      if params[:concept][:consulted_legal] == 0 && params[:concept][:consulted_marketing] == 1
+        @concept.attributes = {:status => 'Awaiting Compliance Approval'}
+      elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 1 
+        @concept.attributes = {:status => 'Awaiting Marketing Approval'}
+      elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 0
+        @concept.attributes = {:status => 'Awaiting Marketing & Legal Approval'}
+      else
+        @concept.attributes = {:status => 'Pending Approval'}
+      end
     respond_to do |format|
       if @concept.update_attributes(params[:concept])
         flash[:notice] = 'Concept was successfully updated.'

@@ -1,8 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :suggestions
   map.resources :users
-
   map.resource :session
-
   map.resources :concepts
   
   map.login '/login', :controller => 'sessions', :action => 'new'

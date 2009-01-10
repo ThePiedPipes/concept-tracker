@@ -1,0 +1,12 @@
+<p>
+  <b><%=h @suggester.login %> made a <%=h @suggestion.issue_type %>  at <%= @suggestion.created_at.strftime('%D %t') %></b>
+  <%=h @suggestion.body %>
+</p>
+<p>
+  <b>Status:</b>
+  <%=h @suggestion.status unless @suggestion.status.blank?  %>
+</p>
+
+
+<%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+<%= link_to 'Back', suggestions_path %>
