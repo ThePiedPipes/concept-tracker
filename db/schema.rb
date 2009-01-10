@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090109165807) do
+ActiveRecord::Schema.define(:version => 20090110213115) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(:version => 20090109165807) do
     t.integer  "concept_id"
   end
 
-  create_table "concepts", :force => true do |t|
+  create_table "concept_versions", :force => true do |t|
+    t.integer  "concept_id"
+    t.integer  "version"
     t.string   "title"
     t.text     "summary"
     t.boolean  "consulted_legal",                                   :default => false
@@ -27,11 +29,39 @@ ActiveRecord::Schema.define(:version => 20090109165807) do
     t.boolean  "design_needed",                                     :default => false
     t.string   "vertical"
     t.string   "status"
-    t.date     "deadline",                                                             :null => false
+    t.date     "deadline"
     t.decimal  "budget",              :precision => 6, :scale => 2
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "concept_versions", ["concept_id"], :name => "index_concept_versions_on_concept_id"
+
+  create_table "concepts", :force => true do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.boolean  "consulted_legal",                                      :default => false
+    t.boolean  "consulted_marketing",                                  :default => false
+    t.boolean  "design_needed",                                        :default => false
+    t.string   "vertical"
+    t.string   "status"
+    t.date     "deadline",                                                                :null => false
+    t.decimal  "budget",                 :precision => 6, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "version"
+    t.date     "approval_meeting_date"
+    t.boolean  "hosted_on_c4",                                         :default => true
+    t.boolean  "subject_to_tx",                                        :default => false
+    t.boolean  "using_video",                                          :default => false
+    t.string   "budget_name"
+    t.string   "traffic_estimate"
+    t.string   "revenue_estimate"
+    t.boolean  "moderation_requirement",                               :default => false
+    t.string   "poc_tech"
+    t.string   "poc_business"
+    t.text     "objectives"
   end
 
   create_table "suggestions", :force => true do |t|

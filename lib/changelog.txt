@@ -3,26 +3,30 @@ COMPLETED 08/01/09: comments on concept
 COMPLETED 08/01/09 mail: mail admin on each new concept request
 COMPLETED 10 01 09 add status decision tree on concept creation
 COMPLETED 10 01 09 removed password protection from login
+COMPLETED 10 01 09 add versioning to concepts
+COMPLETED 10 01 09 add technical POC to concept
+COMPLETED 10 01 09 add prod dev POC to concept
+COMPLETED 10 01 09 add date of approval meeting to concept, hosted_on_c4.com, subject_to_tx,using_video
+COMPLETED 10 01 09 add budget name to concept
+COMPLETED 10 01 09 add objectives to concept
+COMPLETED 10 01 09 add background to concept
+COMPLETED 10 01 09 add traffic estimates to concept
+COMPLETED 10 01 09 add revenue estimates to concept
+COMPLETED 10 01 09 add moderation requirement to concept
 
-TODO add date of approval meeting to concept
-TODO add team roles to user
-TODO add budget name to concept
-TODO add objectives to concept
-TODO add background to concept
+
 TODO add supplier model
 TODO add suppliers to concept
 TODO resource cross charging form for concepts
 TODO calculated total costs for concept
-TODO add traffic estimates to concept
-TODO add revenue estimates to concept
 TODO add moderation requirement tickbox to form
-TODO add moderation requirement to concept
 TODO add attachments to concept
-TODO add versioning to concepts
 TODO add poge for concept process diagram
 TODO comments styled different by approval group users
 TODO mail: reminders to all user group for new concept submissions
-TODO add technical POC to concept
-TODO add prod dev POC to concept
+
 TODO add POC, budget stuff, mod requirements, estimates for traffic and revenue to concept form
 TODO create PDF of concept on creation
+TODO add saving form data 
+TODO add team roles to user
+TODO paginate concepts
