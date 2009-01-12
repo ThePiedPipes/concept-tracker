@@ -2,7 +2,7 @@
 require 'mongrel_cluster/recipes'
 
 set :application, "concept-tracker"
-set :repository,  "set your repository location here"
+set :repository,  "git@github.com:ThePiedPipes/concept-tracker.git"
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
