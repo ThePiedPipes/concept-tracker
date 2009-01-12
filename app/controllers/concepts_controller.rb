@@ -6,7 +6,7 @@ class ConceptsController < ApplicationController
   # GET /concepts
   # GET /concepts.xml
   def index
-    @concepts = Concept.find(:all)
+    @concepts = Concept.paginate :page => params[:page], :per_page => 5
     @user = current_user
 
     respond_to do |format|

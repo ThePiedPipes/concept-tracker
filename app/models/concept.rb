@@ -12,6 +12,15 @@ class Concept < ActiveRecord::Base
   validates_presence_of :deadline, :on => :create, :message => "Deadline can't be blank"
   validates_associated :owner, :on => :create
   
+  validates_numericality_of :est_days_dev,
+                            :est_days_editorial, 
+                            :est_cost_external,
+                            :est_days_legal, 
+                            :est_days_ia, 
+                            :est_days_design,
+                            :est_days_pm,
+                            :on => :create, :message => "is not a number"
+  
   def self.status_values
     count(:all, :group => 'status').reject! { |i, e| i.blank? }.collect { |i,e| i}
   end

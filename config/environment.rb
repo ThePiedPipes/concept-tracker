@@ -69,3 +69,5 @@ Rails::Initializer.run do |config|
   config.action_mailer.default_charset = "utf-8" 
   
 end
+
+require "will_paginate" 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090110213115) do
+ActiveRecord::Schema.define(:version => 20090111210634) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(:version => 20090110213115) do
     t.string   "poc_tech"
     t.string   "poc_business"
     t.text     "objectives"
+    t.float    "est_days_dev"
+    t.float    "est_days_design"
+    t.float    "est_days_ia"
+    t.float    "est_days_editorial"
+    t.float    "est_days_pm"
+    t.float    "est_days_legal"
+    t.float    "est_cost_external"
   end
 
   create_table "suggestions", :force => true do |t|

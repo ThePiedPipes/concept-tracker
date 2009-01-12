@@ -13,6 +13,9 @@ COMPLETED 10 01 09 add background to concept
 COMPLETED 10 01 09 add traffic estimates to concept
 COMPLETED 10 01 09 add revenue estimates to concept
 COMPLETED 10 01 09 add moderation requirement to concept
+COMPLETED 10 01 09 paginate concepts
+COMPLETED 10 01 09 changelog email set up
+
 
 
 TODO add supplier model
@@ -27,6 +30,5 @@ TODO mail: reminders to all user group for new concept submissions
 
 TODO add POC, budget stuff, mod requirements, estimates for traffic and revenue to concept form
 TODO create PDF of concept on creation
-TODO add saving form data 
+TODO add saving form data in chunks
 TODO add team roles to user
-TODO paginate concepts

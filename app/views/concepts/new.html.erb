@@ -9,6 +9,9 @@
   
     <%= f.label :summary %>
     <%= f.text_area :summary, :size => 12 %>
+
+    <%= f.label :objectives %>
+    <%= f.text_area :objectives, :size => 12 %>
   
   	<p>Checklist from relevant departments</p>
   		
@@ -28,31 +31,47 @@
     <%= f.label :design_needed %>
     <%= f.check_box :design_needed %>
   	<div class="spacer"></div>
-	</fieldset>
 	
   	<p>Miscellaneous information</p>
 
 
+  <%= f.label :deadline %>
+  <%= f.date_select :deadline %>
+	<div class="spacer"></div>
   
     <%= f.label :vertical %>
     <%= f.text_field :vertical %>
   	<div class="spacer"></div>
 
 
+  	<p>Cost Breakdown</p>
   
-  
-    <%= f.label :deadline %>
-    <%= f.date_select :deadline %>
-  	<div class="spacer"></div>
+    <%= f.label 'Est Days Development' %>
+    <%= f.text_field :est_days_dev %>
 
+	<%= f.label 'Est Days Editorial' %>
+    <%= f.text_field :est_days_editorial %>
+
+	<%= f.label 'Est Days Proj. Man.' %>
+    <%= f.text_field :est_days_pm %>
   
-  
+  	<%= f.label 'Est Days Design' %>
+    <%= f.text_field :est_days_design %>
+
+	<%= f.label 'Est Days IA' %>
+    <%= f.text_field :est_days_ia %>
+
     <%= f.label :budget %>
     <%= f.text_field :budget %>
   	<div class="spacer"></div>
 
+<p>People</p>
+	<%= f.label 'Tech Point of Contact' %>
+	<%= f.text_field :poc_tech %>
   
-  
+  	<%= f.label 'Business Point of Contact' %>
+	<%= f.text_field :poc_business %>
+	
     <%= f.submit "Submit Your Concept", :class => 'mf_button' %>
 	<div class="spacer"></div>
   

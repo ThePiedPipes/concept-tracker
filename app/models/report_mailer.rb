@@ -3,7 +3,7 @@ class ReportMailer < ActionMailer::Base
 
   def concept_created(concept, sent_at = Time.now)
     subject    'New Concept Created: '+concept.title
-    recipients ["mypipeline@gmail.com","pgsteward@channel4.co.uk"]
+    recipients ["mypipeline@gmail.com"]
     from       'ConceptTracker v0.1'
     sent_on    sent_at
     
@@ -18,10 +18,17 @@ class ReportMailer < ActionMailer::Base
     
     body       :concepts => concepts
   end
+  
+  def changelog(sent_at = Time.now)
+    subject   'Changelog for ConceptTracker'
+    recipients "mypipeline@gmail.com"
+    from      'ConceptTracker'
+    sent_on   sent_at    
+  end
 
-  def reminder_all(sent_at = Time.now)
+  def reminder(sent_at = Time.now)
     subject    'Concept Request Reminder'
-    recipients User.find(:all, :conditions => ['team != ?', "Approvers"])
+    recipients "mypipeline@gmail.com" #User.find(:all, :conditions => ['team != ?', "Approvers"])
     from       ''
     sent_on    sent_at
     
