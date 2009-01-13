@@ -13,11 +13,12 @@ set :repository,  "git@github.com:ThePiedPipes/concept-tracker.git"
 #set :repository,  "#{current_path}/.git"
 set :scm, :git
 set :branch, "master"
-set :deploy_via, :remote_cache
-set :scm_command, "~/bin/git"
+#set :deploy_via, :remote_cache
+#set :scm_command, "~/bin/git"
 
 set :user, 'root'
 set :passwd, ''
+#set :user, 'andyruby'
 #set :admin_runner, 'root'
 
 #role :app, "75.101.188.236"
@@ -31,7 +32,7 @@ default_run_options[:pty] = true
 
 
 # Mahadev this is the important line. need to unpack the PEM into a folder in the .ssh dir
-ssh_options[:keys] = ["#{ENV['HOME']}/.ssh/concept-tracker-key/concept-tracker-key"]
+ssh_options[:keys] = ["/Users/andrewpipes/root"]
 
 # Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
 # any other name (in case you have your own DNS alias) or it won't
