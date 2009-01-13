@@ -1,4 +1,7 @@
+CHANGELOG
+============
 
+----completed
 COMPLETED 08/01/09: comments on concept
 COMPLETED 08/01/09 mail: mail admin on each new concept request
 COMPLETED 10 01 09 add status decision tree on concept creation
@@ -16,19 +19,34 @@ COMPLETED 10 01 09 add moderation requirement to concept
 COMPLETED 10 01 09 paginate concepts
 COMPLETED 10 01 09 changelog email set up
 
+----deployment tasks
+TODO intial dpeloyment recipe
+TODO logging chores into a runner script
+TODO add SMTP server details into mailer
+TODO write backup scripts once tested
 
 
-TODO add supplier model
-TODO add suppliers to concept
+
+----views
+TODO tidy up form styling
+TODO convert destructive links to post requests
 TODO resource cross charging form for concepts
-TODO calculated total costs for concept
-TODO add moderation requirement tickbox to form
-TODO add attachments to concept
-TODO add poge for concept process diagram
 TODO comments styled different by approval group users
-TODO mail: reminders to all user group for new concept submissions
-
+TODO add poge for concept process diagram
 TODO add POC, budget stuff, mod requirements, estimates for traffic and revenue to concept form
 TODO create PDF of concept on creation
 TODO add saving form data in chunks
+
+
+----models
+TODO add supplier model
+TODO add suppliers to concept
+TODO calculated total costs for concept
+TODO add moderation requirement tickbox to form
+TODO add attachments to concept
 TODO add team roles to user
+
+
+----mailings
+TODO mail: reminders to all user group for new concept submissions
+
