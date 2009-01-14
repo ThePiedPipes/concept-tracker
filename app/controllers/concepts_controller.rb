@@ -65,7 +65,7 @@ class ConceptsController < ApplicationController
 
     respond_to do |format|
       if @concept.save
-        #email = ReportMailer.deliver_concept_created(@concept)
+        email = ReportMailer.deliver_concept_created(@concept)
         flash[:notice] = 'Concept was successfully created.'
         format.html { redirect_to(@concept) }
         format.xml  { render :xml => @concept, :status => :created, :location => @concept }

@@ -22,7 +22,7 @@ COMPLETED 14 01 09 tidy up form styling
 
 
 ----deployment tasks
-TODO intial dpeloyment recipe
+COMPLETED 14 01 09 intial dpeloyment recipe
 TODO logging chores into a runner script
 TODO add SMTP server details into mailer
 TODO write backup scripts once tested

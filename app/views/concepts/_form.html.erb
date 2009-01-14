@@ -7,7 +7,10 @@
   <%= f.text_field :title %>
 
   <%= f.label :summary %>
-  <%= f.text_area :summary, :size => 12 %>
+  <%= f.text_area :summary, :size => 10 %>
+
+<%= f.label :objectives %>
+  <%= f.text_area :objectives, :size => 10 %>
 
 	<p>Checklist from relevant departments</p>
 		
@@ -51,7 +54,7 @@
 	<p>Cost Breakdown</p>
 
     <div class="num"> '3rd Party Costs' 
-	<span class="small">(eg. 1000.00)</span></div>
+	<span class="small">(eg. 1000)</span></div>
     <%= f.text_field :est_cost_external, :class => 'num' %>
   
     <%= f.label 'Est Days Development' %>
