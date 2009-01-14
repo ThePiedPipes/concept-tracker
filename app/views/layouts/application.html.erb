@@ -16,7 +16,7 @@
 		<%= 
 		current_user ? "Logged in as #{current_user.login} | #{link_to("Log Out", logout_path)}" : link_to("Log In", login_path) %>
 		</p>
-		<% if Concept.count == 0 %>
+		<% unless Concept.count == 0 %>
 	<p class="stats">Total Concepts: <%= Concept.count %><br>
 	   Last Concept Added: <%= Concept.find(:last).created_at.strftime('%D') %><br>
 	   Concepts Approved: <%= Concept.count(:all, :group => :status, :conditions => 'status LIKE "%Approved%"').size %>
