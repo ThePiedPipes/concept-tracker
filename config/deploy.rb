@@ -9,22 +9,23 @@ set :application, "concept-tracker"
 set :deploy_to, "/var/www/#{application}"
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
-#set :repository,  "git@github.com:ThePiedPipes/concept-tracker.git"
+set :repository,  "git@github.com:ThePiedPipes/concept-tracker.git"
 #set :repository,  "#{current_path}/.git"
-#set :scm, :git
-#set :branch, "master"
-#set :deploy_via, :remote_cache
+set :scm, :git
+set :branch, "master"
+set :deploy_via, :remote_cache
 #set :scm_command, "~/bin/git"
 
-set :repository, "."
-set :scm, :none
-set :deploy_via, :copy
+#set :repository, "."
+#set :scm, :none
+#set :deploy_via, :copy
 
 set :user, 'root'
-set :passwd, ''
+#set :passwd, ''
 #set :user, 'andyruby'
 #set :admin_runner, 'root'
 
+# means that I can check out through github with same keypair
 set :ssh_options, { :forward_agent => true }
 
 #role :app, "75.101.188.236"
@@ -38,7 +39,7 @@ default_run_options[:pty] = true
 
 
 # Mahadev this is the important line. need to unpack the PEM into a folder in the .ssh dir
-ssh_options[:keys] = ["/Users/andrewpipes/root"]
+#ssh_options[:keys] = [""]
 
 # Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
 # any other name (in case you have your own DNS alias) or it won't
