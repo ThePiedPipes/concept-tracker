@@ -13,9 +13,11 @@
 	<% else %>
 		<div>
 	<% end -%>
-  
-  <%=h @concept.status %>
+	  <%=h @concept.status %>
+		</div>
 </div>
+<div id="meeting_date">
+	<%=h @concept.approval_meeting.strftime('%D')  %>
 </div>
 <p>
   <b>Summary:</b>

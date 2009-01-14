@@ -18,6 +18,8 @@ COMPLETED 10 01 09 add revenue estimates to concept
 COMPLETED 10 01 09 add moderation requirement to concept
 COMPLETED 10 01 09 paginate concepts
 COMPLETED 10 01 09 changelog email set up
+COMPLETED 14 01 09 tidy up form styling
+
 
 ----deployment tasks
 TODO intial dpeloyment recipe
@@ -28,7 +30,6 @@ TODO write backup scripts once tested
 
 
 ----views
-TODO tidy up form styling
 TODO convert destructive links to post requests
 TODO resource cross charging form for concepts
 TODO comments styled different by approval group users
@@ -41,7 +42,7 @@ TODO add saving form data in chunks
 ----models
 TODO add supplier model
 TODO add suppliers to concept
-TODO calculated total costs for concept
+TODO calculated total resource days for concept
 TODO add moderation requirement tickbox to form
 TODO add attachments to concept
 TODO add team roles to user

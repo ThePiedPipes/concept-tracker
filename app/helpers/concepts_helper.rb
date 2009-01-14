@@ -6,4 +6,8 @@ module ConceptsHelper
     select_tag('concept[status]', options_for_select(statuses|defaults))
   end
   
+  def total_resource_days
+    Concept.find(params[:id]).total_resource_days
+  end
+  
 end

@@ -1,63 +1,8 @@
 <h1>Editing concept</h1>
 <div class="my_form" id="stylized">
 
-<% form_for(@concept) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => 'form' %>
 
-	<p>Basic details</p>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :summary %>
-  <%= f.text_area :summary, :size => 12 %>
-
-	<p>Checklist from relevant departments</p>
-		
-		
-  <%= f.label :consulted_legal %>
-  <%= f.check_box :consulted_legal %>
-	<div class="spacer"></div>
-
-
-
-  <%= f.label :consulted_marketing %>
-  <%= f.check_box :consulted_marketing %>
-	<div class="spacer"></div>
-
-
-
-  <%= f.label :design_needed %>
-  <%= f.check_box :design_needed %>
-	<div class="spacer"></div>
-	</fieldset>
-
-
-  <%= f.label :vertical %>
-  <%= f.text_field :vertical %>
-	<div class="spacer"></div>
-
-
-	<% if current_user.is_admin? %>
-	<p>For Admin Only</p>
-    <%= f.label :status %>
-    <%= select_from_statuses %>
-  	<div class="spacer"></div>
-	<% end -%>
-
-
-	<p>Miscellaneous information</p>
-  <%= f.label :deadline %>
-  <%= f.date_select :deadline %>
-	<div class="spacer"></div>
-
-
-
-  <%= f.label :budget %>
-  <%= f.text_field :budget %>
-	<div class="spacer"></div>
-    <%= f.submit "Update", :class => 'mf_button' %>
-<% end %>
 <div class="spacer"></div>
 
 <%= link_to 'Show', @concept %> |

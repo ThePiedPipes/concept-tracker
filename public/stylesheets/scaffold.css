@@ -275,3 +275,18 @@ font-size: 11px;
 font-weight: bold;
 }
 
+.total { border-bottom:1px solid #666666;}
+
+#stylized div.num {
+display: inline;
+font-weight: bold;
+text-align: right;
+width: 140px;
+float: left;
+}
+
+#stylized input.num {
+	width:30px;
+	margin-left:20px;
+}
+

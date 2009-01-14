@@ -9,17 +9,23 @@ set :application, "concept-tracker"
 set :deploy_to, "/var/www/#{application}"
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
-set :repository,  "git@github.com:ThePiedPipes/concept-tracker.git"
+#set :repository,  "git@github.com:ThePiedPipes/concept-tracker.git"
 #set :repository,  "#{current_path}/.git"
-set :scm, :git
-set :branch, "master"
+#set :scm, :git
+#set :branch, "master"
 #set :deploy_via, :remote_cache
 #set :scm_command, "~/bin/git"
+
+set :repository, "."
+set :scm, :none
+set :deploy_via, :copy
 
 set :user, 'root'
 set :passwd, ''
 #set :user, 'andyruby'
 #set :admin_runner, 'root'
+
+set :ssh_options, { :forward_agent => true }
 
 #role :app, "75.101.188.236"
 #role :web, "75.101.188.236"

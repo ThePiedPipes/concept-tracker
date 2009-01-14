@@ -1,4 +1,5 @@
-  <%= error_messages %>
+<% form_for(@concept) do |f| %>
+  <%= f.error_messages %>
 
 	<p>Basic details</p>
 
@@ -47,8 +48,48 @@
   <%= f.date_select :deadline %>
 	<div class="spacer"></div>
 
+	<p>Cost Breakdown</p>
 
+    <div class="num"> '3rd Party Costs' 
+	<span class="small">(eg. 1000.00)</span></div>
+    <%= f.text_field :est_cost_external, :class => 'num' %>
+  
+    <%= f.label 'Est Days Development' %>
+    <%= f.text_field :est_days_dev, :class => 'num' %>
 
-  <%= f.label :budget %>
-  <%= f.text_field :budget %>
+	<%= f.label 'Est Days Editorial' %>
+    <%= f.text_field :est_days_editorial, :class => 'num' %>
+
+	<%= f.label 'Est Days Proj. Man.' %>
+    <%= f.text_field :est_days_pm, :class => 'num' %>
+  
+  	<%= f.label 'Est Days Design' %>
+    <%= f.text_field :est_days_design, :class => 'num' %>
+
+	<%= f.label 'Est Days IA' %>
+    <%= f.text_field :est_days_ia, :class => 'num' %>
+
+	<%= f.label 'Est Days Legal' %>
+    <%= f.text_field :est_days_legal, :class => 'num' %>
 	<div class="spacer"></div>
+  	
+	<% if :action == 'edit' %>
+	<span class="total">Total days: <%= total_resource_days %></span>
+	<% end -%>
+	
+    <div class="num">Budget
+	<span class="small">(eg. 1000)</span></div>
+    <%= f.text_field :budget %>
+  	<div class="spacer"></div>
+
+<p>People</p>
+	<%= f.label 'Tech Point of Contact' %>
+	<%= f.text_field :poc_tech %>
+  
+  	<%= f.label 'Business Point of Contact' %>
+	<%= f.text_field :poc_business %>
+
+    <%= f.submit "Update", :class => 'mf_button' %>
+  	<div class="spacer"></div>
+
+<% end %>

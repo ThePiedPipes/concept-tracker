@@ -12,8 +12,10 @@ end
 
 while($running) do
   
-  # Replace this with your code
-  ActiveRecord::Base.logger.info "This daemon is still running at #{Time.now}.\n"
-  
+  if Time.now.wday == 3 && Time.now.hour == 9 && Time.now.min == 0 && Time.now.sec == 0
+    ReportMailer.deliver_weekly_report
+    ActiveRecord::Base.logger.info "Weekly report delivered at #{Time.now}.\n"
+  else
   sleep 10
+  end
 end
