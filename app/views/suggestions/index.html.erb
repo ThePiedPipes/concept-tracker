@@ -8,30 +8,34 @@
 
     <th>Date</th>
   </tr>
-
-<% for suggestion in @suggestions %>
-  <tr>
-    <td><%=h suggestion.body %></td>
-	<% if !suggestion.status.blank? %>
-		<% if suggestion.status == 'Completed' %>
-	    <td style="background-color:#99FF99;"><%=h suggestion.status %></td>
-		<% elsif suggestion.status == 'In Progress'  %>
-		<td style="background-color:#FFFFCC;"><%=h suggestion.status %></td>
-		<% elsif suggestion.status == 'Not Planned'  %>
-		<td style="background-color:#FFFFCC;"><%=h suggestion.status %></td>
+<% if !@suggestions.blank? %>
+	<% for suggestion in @suggestions %>
+	  <tr>
+	    <td><%=h suggestion.body %></td>
+		<% if !suggestion.status.blank? %>
+			<% if suggestion.status == 'Completed' %>
+		    <td style="background-color:#99FF99;"><%=h suggestion.status %></td>
+			<% elsif suggestion.status == 'In Progress'  %>
+			<td style="background-color:#FFFFCC;"><%=h suggestion.status %></td>
+			<% elsif suggestion.status == 'Not Planned'  %>
+			<td style="background-color:#FFFFCC;"><%=h suggestion.status %></td>
+			<% end -%>
 		<% end -%>
-	<% end -%>
-    <td><%=h suggestion.user.login %></td>
-	<td><%= suggestion.created_at.strftime('%D %T') %></td>
+	    <td><%=h suggestion.user.login %></td>
+		<td><%= suggestion.created_at.strftime('%D %T') %></td>
 	
-    <td><%= link_to 'Show', suggestion %></td>
-	<% if current_user && (current_user.is_admin? || current_user == suggestion.user) %>
-    <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
-	<% end -%>
-	<% if current_user && current_user.is_admin? %>
-    <td><%= link_to 'Delete', suggestion, :confirm => 'Are you sure?', :method => :delete %></td>
-	<% end -%>
-  </tr>
+	    <td><%= link_to 'Show', suggestion %></td>
+		<% if current_user && (current_user.is_admin? || current_user == suggestion.user) %>
+	    <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
+		<% end -%>
+		<% if current_user && current_user.is_admin? %>
+	    <td><%= link_to 'Delete', suggestion, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% end -%>
+	  </tr>
+	<% end %>
+
+<% else %>
+  
 <% end %>
 </table>
 

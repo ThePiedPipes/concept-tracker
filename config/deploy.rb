@@ -33,12 +33,8 @@ set :ssh_options, { :forward_agent => true }
 #role :db,  "75.101.188.236", :primary => true
 default_run_options[:pty] = true
 
-# NOTE: for some reason Capistrano requires you to have both the public and
-# the private key in the same folder, the public key should have the 
-# extension ".pub".
 
-
-# Mahadev this is the important line. need to unpack the PEM into a folder in the .ssh dir
+# this is no longer important now that we've got the rsa keypairs lined up
 #ssh_options[:keys] = [""]
 
 # Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
@@ -53,9 +49,6 @@ role :db,       "ec2-75-101-188-236.compute-1.amazonaws.com", :primary => true
 # optinally, you can specify Amazon's EBS volume ID if the database is persisted 
 # via Amazon's EBS.  See the main README for more information.
 
-# Whatever you set here will be taken set as the default RAILS_ENV value
-# on the server. Your app and your hourly/daily/weekly/monthly scripts
-# will run with RAILS_ENV set to this value.
 set :rails_env, "production"
 
 after "deploy:update_code" do
