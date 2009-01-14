@@ -58,5 +58,15 @@ role :db,       "ec2-75-101-188-236.compute-1.amazonaws.com", :primary => true
 # will run with RAILS_ENV set to this value.
 set :rails_env, "production"
 
+after "deploy:update_code" do
+  run "ln -nfs #{File.join(shared_path, 'config', '*')} #{File.join(release_path, 'config')}"
+end
 
-
+desc "tail production log files" 
+task :tail_logs, :roles => :app do
+  run "tail -f #{shared_path}/log/production.log" do |channel, stream, data|
+    puts  # for an extra line break before the host name
+    puts "#{channel[:host]}: #{data}" 
+    break if stream == :err    
+  end
+end

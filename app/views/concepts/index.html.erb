@@ -14,26 +14,34 @@
     <th>Budget</th>
   </tr>
 
-<% for concept in @concepts %>
-  	<% if concept.status == 'Approved' %>
-  		<tr style="background-color:#99FF99;">
-	<% elsif concept.status == 'Rejected' %>
-		<tr style="background-color:#FF9999;">
-	<% elsif concept.status == 'With Compliance' %>
-		<tr style="background-color:#FFFFCC;">
+
+
+  
+
+<% if !@concepts.blank? %>
+	<% for concept in @concepts %>
+	  	<% if concept.status == 'Approved' %>
+	  		<tr style="background-color:#99FF99;">
+		<% elsif concept.status == 'Rejected' %>
+			<tr style="background-color:#FF9999;">
+		<% elsif concept.status == 'With Compliance' %>
+			<tr style="background-color:#FFFFCC;">
+		<% else %>
+			<tr>
+		<% end -%>
+	    <td><%= link_to "#{concept.title}", concept_path(concept) %></td>
+		<td><%= link_to concept.owner.login, user_path(concept.owner)  %></td>
+		<td><%=h concept.created_at.strftime('%b %d %y') %></td>
+	    <td><%=h concept.consulted_legal == true ? "Y" : "N" %></td>
+	    <td><%=h concept.consulted_marketing == true ? "Y" : "N" %></td>
+	    <td><%=h concept.vertical %></td>
+	    <td><%=h concept.status %></td>
+	    <td><%=h concept.deadline %></td>
+	    <td><%=h concept.budget %></td>
+	  </tr>
 	<% else %>
-		<tr>
-	<% end -%>
-    <td><%= link_to "#{concept.title}", concept_path(concept) %></td>
-	<td><%= link_to concept.owner.login, user_path(concept.owner)  %></td>
-	<td><%=h concept.created_at.strftime('%b %d %y') %></td>
-    <td><%=h concept.consulted_legal == true ? "Y" : "N" %></td>
-    <td><%=h concept.consulted_marketing == true ? "Y" : "N" %></td>
-    <td><%=h concept.vertical %></td>
-    <td><%=h concept.status %></td>
-    <td><%=h concept.deadline %></td>
-    <td><%=h concept.budget %></td>
-  </tr>
+
+	<% end %>
 <% end %>
 </table>
 <div id="pagination">
