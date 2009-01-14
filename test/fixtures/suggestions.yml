@@ -3,9 +3,9 @@
 one:
   body: MyText
   status: MyString
-  user: 
+  user: quentin
 
 two:
   body: MyText
   status: MyString
-  user: 
+  user: quentin

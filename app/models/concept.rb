@@ -23,7 +23,9 @@ class Concept < ActiveRecord::Base
                             :est_days_ia, 
                             :est_days_design,
                             :est_days_pm,
-                            :on => :create, :message => "is not a number"
+                            :on => :create, :message => "Must be a number",
+                            :if => :est_days_dev?
+  
                             
   def self.status_values
     count(:all, :group => 'status').reject! { |i, e| i.blank? }.collect { |i,e| i}
@@ -49,8 +51,17 @@ class Concept < ActiveRecord::Base
     self.attributes = {:approval_meeting => date }
   end
   
+  def budget_after_costs
+    if !budget.blank?
+      budget - est_cost_external
+    end
+  end
+  
   def total_resource_days
-    self.est_days_dev + self.est_days_editorial + self.est_days_design + self.est_days_ia + self.est_days_pm
+    costs = [est_days_dev, est_days_editorial, est_days_design, est_days_ia, est_days_pm]
+    unless costs.each { |e| e.blank? }
+      self.est_days_dev + self.est_days_editorial + self.est_days_design + self.est_days_ia + self.est_days_pm
+    end
   end
   
 end

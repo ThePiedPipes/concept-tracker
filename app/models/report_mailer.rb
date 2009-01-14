@@ -32,7 +32,6 @@ class ReportMailer < ActionMailer::Base
     from       ''
     sent_on    sent_at
     
-    body       :greeting => 'This is a reminder to please create your concept forms by noon today'
   end
 
 end

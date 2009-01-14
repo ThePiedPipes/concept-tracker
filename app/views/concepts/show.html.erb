@@ -16,7 +16,7 @@
 	  <%=h @concept.status %>
 		</div>
 </div>
-<div id="meeting_date">
+<div id="right_float">
 	<%=h @concept.approval_meeting.strftime('%D')  %>
 </div>
 <p>
@@ -25,13 +25,8 @@
 </p>
 
 <p>
-  <b>Consulted legal:</b>
-  <%=h @concept.consulted_legal %>
-</p>
-
-<p>
-  <b>Consulted marketing:</b>
-  <%=h @concept.consulted_marketing %>
+  <b>Objectives:</b>
+  <%=h @concept.objectives %>
 </p>
 
 <p>
@@ -44,10 +39,39 @@
   <%=h @concept.deadline %>
 </p>
 
+<div id="costs">
+	<span>Total resource days requested: <%=h @concept.total_resource_days %></span>
+</div>
+
 <p>
   <b>Budget:</b>
   <%=h @concept.budget %>
 </p>
+
+<div id="checklist">
+	<h3>Department checks</h3>
+	<% if @concept.consulted_legal = 0 %>
+	<span class="red">
+	<% else -%>
+	<span>
+	<% end -%>
+	 Consulted legal: 
+	  <%=h @concept.consulted_legal = 0 ? "N" : "Y" %>
+	</span>
+	
+	<% if @concept.consulted_marketing = 0 %>
+	<span class="red">
+	<% else -%>
+	<span>
+	<% end -%>
+	 Consulted legal: 
+	  <%=h @concept.consulted_marketing = 0 ? "N" : "Y" %>
+	</span>
+</div>
+
+<div class="spacer">
+	
+</div>
 
 <div class="comments_block">
 	<% if !@comments.blank? %>

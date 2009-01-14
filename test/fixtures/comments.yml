@@ -2,8 +2,8 @@
 
 one:
   body: MyText
-  references: 
+  user: quentin
 
 two:
   body: MyText
-  references: 
+  user: quentin
