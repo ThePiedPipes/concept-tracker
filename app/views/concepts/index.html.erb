@@ -2,12 +2,10 @@
 
 <div id="dashboard">
 <table>
-  <tr>
+  <tr class="top">
 	<th>Title</th>
 	<th>Owner</th>
-    <th>Created On</th>
-    <th>Compliance</th>
-    <th>Marketing</th>
+    <th>Created</th>
     <th>Vertical</th>
     <th>Status</th>
     <th>Deadline</th>
@@ -32,8 +30,6 @@
 	    <td><%= link_to "#{concept.title}", concept_path(concept) %></td>
 		<td><%= link_to concept.owner.login, user_path(concept.owner)  %></td>
 		<td><%=h concept.created_at.strftime('%b %d %y') %></td>
-	    <td><%=h concept.consulted_legal == true ? "Y" : "N" %></td>
-	    <td><%=h concept.consulted_marketing == true ? "Y" : "N" %></td>
 	    <td><%=h concept.vertical %></td>
 	    <td><%=h concept.status %></td>
 	    <td><%=h concept.deadline %></td>

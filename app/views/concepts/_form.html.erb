@@ -17,18 +17,20 @@
 		
   <%= f.label :consulted_legal %>
   <%= f.check_box :consulted_legal %>
-	<div class="spacer"></div>
-
 
 
   <%= f.label :consulted_marketing %>
   <%= f.check_box :consulted_marketing %>
-	<div class="spacer"></div>
-
 
 
   <%= f.label :design_needed %>
   <%= f.check_box :design_needed %>
+
+  <%= f.label :moderation_requirement %>
+  <%= f.check_box :moderation_requirement %>
+
+  <%= f.label :subject_to_tx %>
+  <%= f.check_box :subject_to_tx %>
 	<div class="spacer"></div>
 	</fieldset>
 
@@ -88,6 +90,17 @@
   	<div class="spacer"></div>
 
 </div>
+
+<p>Traffic and Revenue Estimates</p>
+
+	<%= f.label :traffic_estimate %>
+  <%= f.text_field :traffic_estimate %>
+
+  <%= f.label :revenue_estimate %>
+  <%= f.text_field :revenue_estimate %>
+
+	<div class="spacer"></div>
+
 
 <p>People</p>
 	<%= f.label 'Tech Point of Contact' %>

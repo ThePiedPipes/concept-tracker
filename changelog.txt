@@ -19,10 +19,13 @@ COMPLETED 10 01 09 add moderation requirement to concept
 COMPLETED 10 01 09 paginate concepts
 COMPLETED 10 01 09 changelog email set up
 COMPLETED 14 01 09 tidy up form styling
+COMPLETED 14 01 09 intial dpeloyment recipe
+COMPLETED 15 01 09 add team roles to user
+
+
 
 
 ----deployment tasks
-COMPLETED 14 01 09 intial dpeloyment recipe
 TODO logging chores into a runner script
 TODO add SMTP server details into mailer
 TODO write backup scripts once tested
@@ -45,7 +48,6 @@ TODO add suppliers to concept
 TODO calculated total resource days for concept
 TODO add moderation requirement tickbox to form
 TODO add attachments to concept
-TODO add team roles to user
 
 
 ----mailings

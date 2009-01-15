@@ -79,6 +79,8 @@ color: blue;
 #content {
 border: solid 2px #b7ddf2;
 background: #ebf4fb;
+margin: 20px 10px 10px 200px;
+padding: 1em;
 }
 
 #content .status {
@@ -104,11 +106,6 @@ color: red;
 font-size: 100%;
 }
 
-#content {
-margin: 20px 10px 10px 200px;
-padding: 1em;
-}
-
 #content h2 {
 margin: 0 0 .5em 0;
 }
@@ -132,11 +129,18 @@ margin-bottom: 10px;
 #content #checklist span {
 margin-right: 30px;
 margin-left: 30px;
-font-size: 90%;
+font: 90% "Monaco", "Trebuchet MS", Verdana, sans-serif;
 }
 
 #content #checklist .red {
 background-color: #FFCCFF;
+}
+
+#content #pagination {
+font-size: 80%;
+font-weight: bold;
+border-top: 2px solid #666666;
+margin-top: 5px;
 }
 
 
@@ -146,24 +150,22 @@ clear: both;
 margin: 0;
 padding: .5em;
 color: #333;
-background-color: #ddd;
+background-color: #FFCCCC;
 border-top: 1px solid #eaeaea;
 }
 
 
-/******Dashboard*******/
+/******Dashboards*******/
 
 
 #dashboard table {
 border: none;
 }
 					
-#dashboard th {
-border-top: 4px solid #666;
-width: 100%;
-font: 75% "Monaco", "Trebuchet MS", Verdana, sans-serif;
+#dashboard tr.top {
+border-bottom: 4px solid #666;
+font: 90% "Monaco", "Trebuchet MS", Verdana, sans-serif;
 text-align: left;
-vertical-align: top;
 padding: 2px;
 }
 				
@@ -180,6 +182,19 @@ padding: 2px;
 color: blue;
 }
 
+#mini_dash_left {
+width: 350px;
+display: inline;
+background-color: #FFCCFF;
+}
+
+#mini_dash_right {
+width: 350px;
+display:inline;
+margin-left:30px;
+background-color: #FFCCFF;
+}
+
 /******Errors*******/
 
 pre {
@@ -189,7 +204,7 @@ font-size: 11px;
 }
 
 .fieldWithErrors {
-padding: 2px;
+padding: 1px;
 background-color: red;
 display: table;
 }

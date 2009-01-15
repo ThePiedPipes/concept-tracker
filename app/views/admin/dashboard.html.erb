@@ -1,26 +1,37 @@
-	<h2>Admin Dashboard</h2>
-	<div class="block_left">
-		<h3>Concepts</h3>
-		<ul>
-		<% if !@concepts.blank? %>
-		  <% for concept in @concepts %>
-			<%= content_tag :li, link_to(concept.title, concept_path(concept)) %>
-		  <% end %>
-		<% else %>
-
-		<% end %>
-		</ul>
-	</div>
-	<div class="block_right">
-		<h3>People</h3>
-		<ul>
-		<% if !@users.blank? %>
-		  <% for person in @users %>
-			<%= content_tag :li, link_to(person.login, user_path(person)) %>
-		  <% end %>
-		<% else %>
-
-		<% end %>
-		</ul>
-	</div>
-  	<div class="spacer"></div>
+<h2>Admin Dashboard</h2>
+<table id="mini_dash_left">
+	<tr>
+		<th>Name</th>
+		<th>Created</th>
+	</tr>
+	<% if !@concepts_awaiting_approval.blank? %>
+	  <% for concept in @concepts_awaiting_approval %>
+	<tr>
+		<td><%= link_to(concept.title, concept_path(concept)) %></td>
+		<td><%= concept.created_at.strftime('%D %T') %></td>	
+	</tr>
+	  <% end %>
+	<% else %>
+	No concepts created yet.
+	<% end %>
+	
+</table>
+		
+		
+		
+<table id="mini_dash_right">
+	<tr>
+		<th>Name</th>
+		<th>Created</th>
+	</tr>
+<% if !@users.blank? %>
+  <% for person in @users %>
+<tr>
+	<td><%= link_to(person.login, user_path(person)) %></td>
+	<td><%= person.created_at.strftime('%D %T') %></td>
+</tr>
+  <% end %>
+<% else %>
+No users created yet.
+<% end %>
+</table>

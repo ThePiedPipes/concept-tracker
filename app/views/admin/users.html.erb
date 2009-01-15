@@ -1,2 +1,24 @@
-<h1>Admin#users</h1>
-<p>Find me in app/views/admin/users.html.erb</p>
+<h1>Users panel</h1>
+<table id="dashboard" border="0" cellspacing="5" cellpadding="5">
+	<tr class="top">
+		<th>Name</th>
+		<th>Team</th>
+		<th>Admin?</th>
+		<th>Projects</th>
+	</tr>
+	<% if !@users.blank? %>
+	  <% for user in @users %>
+	    
+	    	<tr>
+				<td><%= link_to user.login, user_path(user) %></td>
+				<td><%= user.team %></td>
+				<td><%= user.is_admin? ? "Y" : "N" %></td>
+				<td><%= user.concepts.size %></td>
+			</tr>
+
+	  <% end %>
+	<% else %>
+	  
+	<% end %>
+</table>
+
