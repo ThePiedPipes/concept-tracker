@@ -21,6 +21,8 @@ COMPLETED 10 01 09 changelog email set up
 COMPLETED 14 01 09 tidy up form styling
 COMPLETED 14 01 09 intial dpeloyment recipe
 COMPLETED 15 01 09 add team roles to user
+COMPLETED 15 01 09 added is_approver role to user
+COMPLETED 15 01 09 changes to dashboard to only show pending approval concepts
 
 
 
