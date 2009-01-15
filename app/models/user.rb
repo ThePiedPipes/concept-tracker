@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   #validates_length_of       :email,    :within => 3..100
   #validates_format_of       :email, :with => /^([^@\s]+)@(channel4.co.uk)$/i,:message => 'email must be from channel4.co.uk'
 
-  validates_uniqueness_of   :login, :email, :case_sensitive => false
+  validates_uniqueness_of   :login, :case_sensitive => false
   #before_save :encrypt_password
   
   # prevents a user from submitting a crafted form that bypasses activation

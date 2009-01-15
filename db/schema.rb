@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090114202253) do
+ActiveRecord::Schema.define(:version => 20090115091604) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20090114202253) do
     t.datetime "remember_token_expires_at"
     t.string   "role"
     t.string   "team"
+    t.boolean  "is_approver",                             :default => false
   end
 
 end
