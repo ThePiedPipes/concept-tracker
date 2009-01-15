@@ -27,9 +27,7 @@ class Concept < ActiveRecord::Base
                             :if => :est_days_dev?
   
                             
-  def self.status_values
-    count(:all, :group => 'status').reject! { |i, e| i.blank? }.collect { |i,e| i}
-  end
+
   
   def add_approval_meeting_date
     case Date.today.wday
