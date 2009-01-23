@@ -23,6 +23,7 @@ COMPLETED 14 01 09 intial dpeloyment recipe
 COMPLETED 15 01 09 add team roles to user
 COMPLETED 15 01 09 added is_approver role to user
 COMPLETED 15 01 09 changes to dashboard to only show pending approval concepts
+COMPLETED 16 01 09 add moderation requirement tickbox to form
 
 
 
@@ -31,6 +32,7 @@ COMPLETED 15 01 09 changes to dashboard to only show pending approval concepts
 TODO logging chores into a runner script
 TODO add SMTP server details into mailer
 TODO write backup scripts once tested
+TODO change root of routes to be 'concept-tracker'
 
 
 
@@ -48,7 +50,6 @@ TODO add saving form data in chunks
 TODO add supplier model
 TODO add suppliers to concept
 TODO calculated total resource days for concept
-TODO add moderation requirement tickbox to form
 TODO add attachments to concept
 
 

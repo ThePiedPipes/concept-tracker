@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090115091604) do
+ActiveRecord::Schema.define(:version => 20090123112721) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(:version => 20090115091604) do
     t.boolean  "moderation_requirement",                               :default => false
     t.string   "poc_tech"
     t.string   "poc_business"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "concept_versions", ["concept_id"], :name => "index_concept_versions_on_concept_id"
@@ -88,6 +92,10 @@ ActiveRecord::Schema.define(:version => 20090115091604) do
     t.float    "est_days_pm"
     t.float    "est_days_legal"
     t.float    "est_cost_external"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "suggestions", :force => true do |t|

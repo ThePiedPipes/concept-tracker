@@ -37,7 +37,7 @@
 			<li>
 				<%= link_to "Your Concepts", user_path(current_user) %>
 			</li>
-			<%=  link_to("Admin", {:controller => "admin", :action => "dashboard" }) unless (current_user && !current_user.is_admin?) %>
+			<%=  link_to "Admin Area", admin_path unless (current_user && !current_user.is_admin?) %>
 
 		</ul>
 	</div>
@@ -46,6 +46,7 @@
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>
+
 	</div>
 	<div id="footer">
 		<%= link_to "Found a bug or got a suggestion?", suggestions_path %>

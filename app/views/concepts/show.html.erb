@@ -16,6 +16,13 @@
 	  <%=h @concept.status %>
 		</div>
 </div>
+<% unless @concept.document_file_name.nil? %>
+<div id="attachment">
+	Attachment:
+	<%= link_to @concept.document_file_name, @concept.document.url %>
+</div>
+<% end -%>
+
 <div id="right_float">
 	<%=h @concept.approval_meeting.strftime('%D')  %>
 </div>
@@ -68,6 +75,8 @@
 	  <%=h @concept.consulted_marketing = 0 ? "N" : "Y" %>
 	</span>
 </div>
+
+
 
 <div class="spacer">
 	

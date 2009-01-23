@@ -62,12 +62,12 @@ class ConceptsController < ApplicationController
       @concept.attributes = {:status => 'Pending Approval'}
     end
     @concept.owner = current_user
-
+      
     respond_to do |format|
       if @concept.save
-        email = ReportMailer.deliver_concept_created(@concept)
+        #email = ReportMailer.deliver_concept_created(@concept)
         flash[:notice] = 'Concept was successfully created.'
-        format.html { redirect_to(@concept) }
+        format.html { redirect_to concept_path(@concept) }
         format.xml  { render :xml => @concept, :status => :created, :location => @concept }
       else
         format.html { render :action => "new" }
@@ -125,5 +125,6 @@ class ConceptsController < ApplicationController
       redirect_to concept_path(@concept)
     end
   end
+  
   
 end

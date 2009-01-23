@@ -1,21 +1,25 @@
 class Concept < ActiveRecord::Base
   
   #running into problems with new columns not being added even after a server reboot
+  # needed to manually add new columns to Versions table
   acts_as_versioned
   
+  # associations
   belongs_to :owner, :class_name => "User", :foreign_key => "user_id"
   has_many :comments
+
+  has_attached_file :document
   
+  # callbacks
   before_create :add_approval_meeting_date
-  
   before_update :validate
   
+  # validations
+  #validates_presence_of :budget, :on => :create, :message => "must have a budget"
   validates_presence_of :title, :on => :create, :message => "Title can't be blank"
-  validates_presence_of :summary, :on => :create, :message => "Summary can't be blank"
-  
+  #validates_presence_of :summary, :on => :create, :message => "Summary can't be blank"
   validates_presence_of :deadline, :on => :create, :message => "Deadline can't be blank"
   validates_associated :owner, :on => :create
-  
   validates_numericality_of :est_days_dev,
                             :est_days_editorial, 
                             :est_cost_external,
@@ -24,11 +28,19 @@ class Concept < ActiveRecord::Base
                             :est_days_design,
                             :est_days_pm,
                             :on => :create, :message => "Must be a number",
-                            :if => :est_days_dev?
-  
-                            
+                            :allow_nil => true
 
+  # named scope finders
+  # passing in a lamba to get around the fact that 
+  # the firt time the class is called, the Date method will be called,
+  # meaning a stale time would be kept unintentionally.
   
+  named_scope :recently_added, lambda { |*args| {:conditions => ['created_at > ?', args.first || 3.weeks.ago]} }
+  named_scope :last_7_days, lambda { {:conditions => ['created_at > ?', 1.week.ago]} }
+  named_scope :unapproved, :conditions => ['status != ?', "Approved"]
+  named_scope :approved, :conditions => ['status = ?', "Approved"]
+
+
   def add_approval_meeting_date
     case Date.today.wday
     when 1
@@ -60,6 +72,7 @@ class Concept < ActiveRecord::Base
     unless costs.each { |e| e.blank? }
       self.est_days_dev + self.est_days_editorial + self.est_days_design + self.est_days_ia + self.est_days_pm
     end
-  end
+  end 
+  
   
 end

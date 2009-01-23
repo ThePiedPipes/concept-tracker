@@ -65,8 +65,14 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
   
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :sendmail #:smtp
   config.action_mailer.default_charset = "utf-8" 
+  
+  config.action_mailer.smtp_settings = { 
+  :address => "mail.c4tech.co.uk", 
+  :port => 25,
+  } 
+  
   
 end
 

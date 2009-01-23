@@ -4,8 +4,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :concepts
   
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.admin 'admin', :controller => 'admin', :action => 'dashboard'
+  
+  map.login 'login', :controller => 'sessions', :action => 'new'
+  map.logout 'logout', :controller => 'sessions', :action => 'destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -44,7 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
-  map.root :controller => 'concepts'
+  map.root :controller => 'concepts', :action => 'index'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
