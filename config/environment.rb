@@ -71,6 +71,7 @@ Rails::Initializer.run do |config|
   config.action_mailer.smtp_settings = { 
   :address => "mail.c4tech.co.uk", 
   :port => 25,
+  :domain  => "ec2-75-101-188-236.compute-1.amazonaws.com",
   } 
   
   
