@@ -1,5 +1,5 @@
 class ConceptsController < ApplicationController
-  before_filter :set_concept_status_attribute, :only => [:create, :update]
+  #before_filter :set_concept_status_attribute, :only => [:create, :update]
   
   before_filter :login_required
   
