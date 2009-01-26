@@ -53,11 +53,13 @@ class ConceptsController < ApplicationController
   def create
     @concept = Concept.new(params[:concept])
     # make sure that the status is correct
-    
-
-    
-    
     @concept.owner = current_user
+    
+    waiting_on = []
+    waiting_on << 'Marketing' unless params[:concept][:consulted_marketing]
+    waiting_on << 'Legal' unless params[:concept][:consulted_legal]
+    status = waiting_on.empty? ? 'Pending Approval' : "Awaiting #{waiting_on.join(' & ')} Approval"
+    @concept.attributes = {:status => status}
       
     respond_to do |format|
       if @concept.save
@@ -112,14 +114,5 @@ class ConceptsController < ApplicationController
       redirect_to concept_path(@concept)
     end
   end
-  
-private
-    def set_concept_status_attribute
-      waiting_on = []
-      waiting_on << 'Marketing' unless params[:concept][:consulted_marketing]
-      waiting_on << 'Legal' unless params[:concept][:consulted_legal]
-      status = waiting_on.empty? ? 'Pending Approval' : "Awaiting #{waiting_on.join(' & ')} Approval"
-      @concept.attributes = {:status => status}
-    end
-  
+
 end
