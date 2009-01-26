@@ -10,6 +10,8 @@ class Concept < ActiveRecord::Base
 
   has_attached_file :document
   
+  before_save :set_status
+  
   # callbacks
   before_create :add_approval_meeting_date
   before_update :validate
@@ -72,7 +74,24 @@ class Concept < ActiveRecord::Base
     unless costs.each { |e| e.blank? }
       self.est_days_dev + self.est_days_editorial + self.est_days_design + self.est_days_ia + self.est_days_pm
     end
-  end 
+  end
+  
+  
+  
+  def set_status
+    if status.blank?
+      if (consulted_legal == true) && (consulted_marketing == true)
+          status = "Pending Approval"
+      elsif (consulted_legal == true) && (consulted_marketing == false)
+        status = "Awaiting Marketing Approval"
+      elsif (consulted_legal == false) && (consulted_marketing == true)
+        status = "Awaiting Legal Approval"
+      elsif (consulted_legal == false) && (consulted_marketing == false)
+        status = "Awaiting Marketing & Legal Approval"
+      end
+    end
+    true # Needs to return true for the update to go through    
+  end
   
   
 end

@@ -33,7 +33,7 @@
 
 
 <%= f.label :vertical %>
-<%= f.text_field :vertical %>
+<%= select_from_verticals %>
 <div class="spacer"></div>
 
 
@@ -45,6 +45,7 @@
 <% end -%>
 
 
+
 <p>Miscellaneous information</p>
 <%= f.label :deadline %>
 <%= f.date_select :deadline %>
@@ -52,9 +53,7 @@
 
 <p>Cost Breakdown</p>
 <div id="cost_breakdown">
-
-
-  <div class="num"> '3rd Party Costs' 
+<div class="num"> '3rd Party Costs' 
 <span class="small">(eg. 1000)</span></div>
 <%= f.text_field :est_cost_external, :class => 'num' %>
 
@@ -81,10 +80,11 @@
 <span class="total">Total days: <%= total_resource_days %></span>
 <% end -%>
 
-  <div class="num">Budget
-<span class="small">(eg. 1000)</span></div>
-  <%= f.text_field :budget %>
-	<div class="spacer"></div>
+<div class="num">Budget
+<span class="small">(eg. 1000)</span>
+</div>
+<%= f.text_field :budget %>
+<div class="spacer"></div>
 
 </div>
 

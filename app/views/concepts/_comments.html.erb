@@ -1,0 +1,13 @@
+<div class="comments_block">
+<% if !@comments.blank? %>
+<%=  content_tag(:h3, "Comments for #{@concept.title}") %>
+<% for comment in @comments %>
+	<%= content_tag(:span, "#{comment.user.login} - #{comment.created_at.strftime('%D')}", :class => 'signature') %>
+	<%= content_tag (:span, "Official response", :class => 'official_response') if comment.user.is_approver? %>
+	<%= content_tag :div, comment.body, :class => 'comment' %>
+<% end %>
+	<%= render :partial => 'comment_form' %>
+<% else %>
+	<%= render :partial => 'comment_form' %>
+<% end %>
+</div>

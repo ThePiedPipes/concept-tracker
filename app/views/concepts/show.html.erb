@@ -57,22 +57,22 @@
 
 <div id="checklist">
 	<h3>Department checks</h3>
-	<% if @concept.consulted_legal = 0 %>
+	<% if !@concept.consulted_legal %>
 	<span class="red">
 	<% else -%>
 	<span>
 	<% end -%>
 	 Consulted legal: 
-	  <%=h @concept.consulted_legal = 0 ? "N" : "Y" %>
+	  <%=h !@concept.consulted_legal ? "N" : "Y" %>
 	</span>
 	
-	<% if @concept.consulted_marketing = 0 %>
+	<% if !@concept.consulted_marketing %>
 	<span class="red">
 	<% else -%>
 	<span>
 	<% end -%>
-	 Consulted legal: 
-	  <%=h @concept.consulted_marketing = 0 ? "N" : "Y" %>
+	 Consulted marketing: 
+	  <%=h !@concept.consulted_marketing ? "N" : "Y" %>
 	</span>
 </div>
 
@@ -82,20 +82,8 @@
 	
 </div>
 
-<div class="comments_block">
-	<% if !@comments.blank? %>
-	<%=  content_tag(:h3, "Comments for #{@concept.title}") %>
-	  <% for comment in @comments %>
-	<%= content_tag(:span, "#{comment.user.login} - #{comment.created_at.strftime('%D')}", :class => 'signature') %>
-		<%= content_tag :div, comment.body, :class => 'comment' %>
-	  <% end %>
-		<%= render :partial => 'comment_form' %>
-	<% else %>
-	  <%= render :partial => 'comment_form' %>
+<%= render :partial => 'comments' %>
 
-	<% end %>
-	
-</div>
 
 
 <%= link_to 'Edit', edit_concept_path(@concept) %> | <%= link_to 'Back', concepts_path %>

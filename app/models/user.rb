@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
   def is_admin?
     self.is_admin == true
   end
+  
+  def is_approver?
+    self.is_approver == true
+  end
 
   def remember_me_until(time)
     self.remember_token_expires_at = time

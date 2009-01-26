@@ -96,6 +96,8 @@ font-size: 90%;
 margin-bottom: 10px;
 }
 
+
+/* Comments and Comment Form */
 #content .comment {
 margin-bottom: 10px;
 }
@@ -105,6 +107,14 @@ font: 75% "Monaco", "Trebuchet MS", Verdana, sans-serif;
 color: red;
 font-size: 100%;
 }
+
+#content .official_response {
+	font-weight:bold;
+	margin-left:25px;
+	background-color:yellow;
+}
+
+
 
 #content h2 {
 margin: 0 0 .5em 0;

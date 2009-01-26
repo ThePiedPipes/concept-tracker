@@ -1,4 +1,5 @@
 class ConceptsController < ApplicationController
+  before_filter :set_concept_status_attribute, :only => [:create, :update]
   
   before_filter :login_required
   
@@ -52,15 +53,10 @@ class ConceptsController < ApplicationController
   def create
     @concept = Concept.new(params[:concept])
     # make sure that the status is correct
-    if params[:concept][:consulted_legal] == 0 && params[:concept][:consulted_marketing] == 1
-      @concept.attributes = {:status => 'Awaiting Compliance Approval'}
-    elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 1 
-      @concept.attributes = {:status => 'Awaiting Marketing Approval'}
-    elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 0
-      @concept.attributes = {:status => 'Awaiting Marketing & Legal Approval'}
-    else
-      @concept.attributes = {:status => 'Pending Approval'}
-    end
+    
+
+    
+    
     @concept.owner = current_user
       
     respond_to do |format|
@@ -80,16 +76,7 @@ class ConceptsController < ApplicationController
   # PUT /concepts/1.xml
   def update
     @concept = Concept.find(params[:id])
-     # make sure that the status is correct
-      if params[:concept][:consulted_legal] == 0 && params[:concept][:consulted_marketing] == 1
-        @concept.attributes = {:status => 'Awaiting Compliance Approval'}
-      elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 1 
-        @concept.attributes = {:status => 'Awaiting Marketing Approval'}
-      elsif params[:concept][:consulted_marketing] == 0 && params[:concept][:consulted_legal] == 0
-        @concept.attributes = {:status => 'Awaiting Marketing & Legal Approval'}
-      else
-        @concept.attributes = {:status => 'Pending Approval'}
-      end
+      
     respond_to do |format|
       if @concept.update_attributes(params[:concept])
         flash[:notice] = 'Concept was successfully updated.'
@@ -109,7 +96,7 @@ class ConceptsController < ApplicationController
     @concept.destroy
 
     respond_to do |format|
-      format.html { redirect_to(concepts_url) }
+      format.html { redirect_to :back }
       format.xml  { head :ok }
     end
   end
@@ -126,5 +113,13 @@ class ConceptsController < ApplicationController
     end
   end
   
+private
+    def set_concept_status_attribute
+      waiting_on = []
+      waiting_on << 'Marketing' unless params[:concept][:consulted_marketing]
+      waiting_on << 'Legal' unless params[:concept][:consulted_legal]
+      status = waiting_on.empty? ? 'Pending Approval' : "Awaiting #{waiting_on.join(' & ')} Approval"
+      @concept.attributes = {:status => status}
+    end
   
 end
