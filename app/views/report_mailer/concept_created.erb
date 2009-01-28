@@ -1,3 +1,3 @@
 Concept created: <%= Time.now %>
 --------------------------------------------------
-<%= link_to @concept.title, concept_url(@concept) %> | created by: <%= @concept.owner.login %>
+<%= link_to @concept.title, concept_path(@concept) %> | created by: <%= @concept.owner.login %>
