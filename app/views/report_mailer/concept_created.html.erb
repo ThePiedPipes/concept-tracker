@@ -1,0 +1,5 @@
+<h2>New Concept added to Concept Tracker</h2>
+<p>Concept created: <%= Time.now %></p>
+<hr />
+<a href="http://ec2-75-101-188-236.compute-1.amazonaws.com/<%= concept_path(@concept) %>"><%= @concept.title %></a>
+<p>created by: <%= @concept.owner.login %></p>
