@@ -55,4 +55,9 @@ TODO calculated total resource days for concept
 
 ----mailings
 TODO mail: reminders to all user group for new concept submissions
+TODO html version of mailer
+
+----reports
+TODO create reports page that sends out mailers
+TODO create pdf reports
 

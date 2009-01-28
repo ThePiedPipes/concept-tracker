@@ -39,9 +39,18 @@ class Concept < ActiveRecord::Base
   
   named_scope :recently_added, lambda { |*args| {:conditions => ['created_at > ?', args.first || 3.weeks.ago]} }
   named_scope :last_7_days, lambda { {:conditions => ['created_at > ?', 1.week.ago]} }
-  named_scope :unapproved, :conditions => ['status != ?', "Approved"]
+  named_scope :unapproved, :conditions => { :status => ["Approved", "Completed", "In Progress"]}
   named_scope :approved, :conditions => ['status = ?', "Approved"]
+  named_scope :completed, :conditions => ['status = ?', "Completed"]
+  
 
+  def self.search_by_user_name(name)
+    find(:all, :include => :owner, :conditions => ["users.login LIKE ?", "%#{name}%"])
+  end
+  
+  def self.search_by_title(title)
+    find(:all, :conditions => ["title LIKE ?", "%#{title}%"])
+  end
 
   def add_approval_meeting_date
     case Date.today.wday
@@ -76,8 +85,10 @@ class Concept < ActiveRecord::Base
     end
   end
   
+
   
-  
+  # fixme: setting value of these params to true always fails as they
+  # are accepting form data, which are strings
   def set_status
     if status.blank?
       if (consulted_legal == true) && (consulted_marketing == true)

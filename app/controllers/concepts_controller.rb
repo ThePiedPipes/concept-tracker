@@ -7,7 +7,12 @@ class ConceptsController < ApplicationController
   # GET /concepts
   # GET /concepts.xml
   def index
-    @concepts = Concept.paginate :page => params[:page], :per_page => 5
+    case params[:filter]
+    when "completed" then @concepts = Concept.completed.paginate :page => params[:page], :per_page => 5
+    when "approved" then @concepts = Concept.approved.paginate :page => params[:page], :per_page => 5
+    when "unapproved" then @concepts = Concept.unapproved.paginate :page => params[:page], :per_page => 5
+    else   @concepts = Concept.paginate :page => params[:page], :per_page => 5
+    end
     @user = current_user
 
     respond_to do |format|
@@ -34,8 +39,9 @@ class ConceptsController < ApplicationController
   # GET /concepts/new
   # GET /concepts/new.xml
   def new
-    @concept = Concept.new
     @owner = current_user
+    @concept = Concept.new
+    
 
     respond_to do |format|
       format.html # new.html.erb

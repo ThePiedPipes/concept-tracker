@@ -1,5 +1,14 @@
 <h2>Latest Concepts</h2>
 
+<div id="filters">
+	<ul>
+		<li><%= link_to_unless_current "All", concepts_path, :filter => ""  %></li>
+		<li><%= link_to_unless_current "Unapproved Only", concepts_path( :filter => "unapproved"), :filter => "approved" %></li>
+		<li><%= link_to_unless_current "Approved Only", concepts_path( :filter => "approved"), :filter => "unapproved"  %></li>
+		<li><%= link_to_unless_current "Completed Only", concepts_path( :filter => "completed"), :filter => "completed"  %></li>
+	</ul>
+</div>
+
 <div id="dashboard">
 <table>
   <tr class="top">
