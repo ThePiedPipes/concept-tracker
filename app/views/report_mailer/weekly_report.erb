@@ -2,7 +2,7 @@ Concepts for w/c <%= Date.today %>
 --------------------------------------------------
 <% if !@concepts.blank? -%>
 <% for concept in @concepts -%>
-<%= link_to concept.title, concept_path(concept) %> created by: <%= concept.owner.login %> on <%= concept.created_at.strftime('%D') %>
+<%= link_to concept.title, concept_url(concept) %> created by: <%= concept.owner.login %> on <%= concept.created_at.strftime('%D') %>
 <% end -%>
 <% else -%>
 <% end -%>

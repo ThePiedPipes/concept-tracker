@@ -28,6 +28,7 @@ COMPLETED 23 01 09 added paperclipping attachments (works with doc files and jpe
 COMPLETED 23 01 09 add POC, budget stuff, mod requirements, estimates for traffic and revenue to concept form
 COMPLETED 23 01 09 add SMTP server details into mailer
 COMPLETED 23 01 09 comments styled different by approval group users
+COMPLETED 28 01 09 added filters to concepts index
 
 
 
@@ -42,9 +43,11 @@ TODO change root of routes to be 'concept-tracker'
 TODO convert destructive links to post requests
 TODO resource cross charging form for concepts
 TODO add poge for concept process diagram
+TODO tidy up departmental checklist div
 
 TODO create PDF of concept on creation
 TODO add saving form data in chunks
+TODO search page for concepts; filters by user
 
 
 ----models

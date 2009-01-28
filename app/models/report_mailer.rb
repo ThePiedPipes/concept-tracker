@@ -3,7 +3,7 @@ class ReportMailer < ActionMailer::Base
 
   def concept_created(concept, sent_at = Time.now)
     subject    'New Concept Created: '+concept.title
-    recipients ["mypipeline@gmail.com"]
+    recipients ["apipes@channel4.co.uk","pgsteward@channel4.co.uk"]
     from       'ConceptTracker v0.1'
     sent_on    sent_at
     
