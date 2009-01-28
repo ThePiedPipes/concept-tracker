@@ -18,7 +18,9 @@ class ConceptsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @concepts }
+      format.csv { render :text => @concepts.to_csv }
     end
+    
   end
 
   # GET /concepts/1
