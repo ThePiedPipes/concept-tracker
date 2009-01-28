@@ -6,6 +6,7 @@ class ReportMailer < ActionMailer::Base
     recipients ["apipes@channel4.co.uk","pgsteward@channel4.co.uk"]
     from       'ConceptTracker v0.1'
     sent_on    sent_at
+    content_type "text/html"
     
     body       :concept => concept
   end
@@ -14,6 +15,8 @@ class ReportMailer < ActionMailer::Base
     subject    'Weekly Concepts Summary '
     recipients "pgsteward@channel4.co.uk"
     from       'ConceptTracker v0.1'
+    content_type "text/html"
+    
     sent_on    sent_at
     
     body       :concepts => concepts

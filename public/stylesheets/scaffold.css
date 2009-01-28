@@ -44,7 +44,15 @@ a:visited{color:blue;}
 /******Dashboards*******/
 #dashboard table{border:none;}
 #dashboard tr.top{border-bottom:4px solid #666;font:90% "Monaco","Trebuchet MS",Verdana,sans-serif;text-align:left;padding:2px;}
+#dashboard tr.even{background-color: #eaeaea;}
+#dashboard tr.odd{background-color: #ffffff;}
+
 #dashboard td{border:none;width:100%;font:75% "Monaco","Trebuchet MS",Verdana,sans-serif;vertical-align:top;text-align:left;padding:2px;}
+#dashboard td.first {width:100px;}
+#dashboard td.wide {width:25%;}
+#dashboard td.narrow {width:30px; text-align:center;}
+
+
 #dashboard a{color:blue;}
 #mini_dash_left{width:350px;display:inline;background-color:#FFCCFF;}
 #mini_dash_right{width:350px;display:inline;margin-left:30px;background-color:#FFCCFF;}

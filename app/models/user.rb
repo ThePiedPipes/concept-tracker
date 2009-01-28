@@ -56,6 +56,22 @@ class User < ActiveRecord::Base
     remember_me_until time.from_now.utc
   end
   
+  def give_admin_rights
+    self.is_admin = true
+  end
+  
+  def remove_admin_rights
+    self.is_admin = false
+  end
+  
+  def give_approver_rights
+    self.is_approver = true
+  end
+  
+  def remove_approver_rights
+    self.is_approver = false
+  end
+  
   def is_admin?
     self.is_admin == true
   end

@@ -49,6 +49,8 @@ TODO create PDF of concept on creation
 TODO add saving form data in chunks
 TODO search page for concepts; filters by user
 
+TODO admin area: add admin rights to user
+
 
 ----models
 TODO add supplier model

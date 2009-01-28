@@ -25,21 +25,19 @@
 	</div>
 	<div id="leftnav">
 		<ul id="nav">
-			<li>
-			<%= link_to ("Create Concept", new_concept_path) %> 
-			</li>
-			<li>
-			<%= link_to ("Latest Concepts", concepts_path) %> 
-			</li>
-			<li>
-			<%= link_to ("Contributors", users_path) %> 
-			</li>
-			<li>
-				<%= link_to "Your Concepts", user_path(current_user) %>
-			</li>
-			<%=  link_to "Admin Area", admin_path unless (current_user && !current_user.is_admin?) %>
-
+			<li><%= link_to_unless_current "Create Concept", new_concept_path  %></li>
+			<li><%= link_to_unless_current "Latest Concepts", concepts_path %></li>
+			<li><%= link_to_unless_current "Contributors", users_path %></li>
+			<li><%= link_to_unless_current "Your Concepts", user_path(current_user) %></li>
 		</ul>
+		<% if current_user && current_user.is_admin? %>
+		<ul id="admin_nav">
+			<h3>Admin screens:</h3>
+			<li><%= link_to_unless_current "Admin Dashboard", admin_path %></li>
+			<li><%= link_to_unless_current "Manage Users and Rights", admin_users_path %></li>
+			<li><strong style="color:red;">Coming Soon:</strong> Reports</li>
+		</ul>
+		<% end -%>
 	</div>
 	<div id="content">
 

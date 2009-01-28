@@ -32,5 +32,37 @@ class UsersController < ApplicationController
   def index
     @users = User.find :all
   end
+  
+  def add_to_admin
+    @user = User.find(params[:id])
+    @user.give_admin_rights
+    if @user.save
+      redirect_to :back
+    end
+  end
+  
+  def remove_from_admin
+    @user = User.find(params[:id])
+    @user.remove_admin_rights
+    if @user.save
+      redirect_to :back
+    end
+  end
+
+  def add_to_approvers
+    @user = User.find(params[:id])
+    @user.give_approver_rights
+    if @user.save
+      redirect_to :back
+    end
+  end
+  
+  def remove_from_approvers
+    @user = User.find(params[:id])
+    @user.remove_approver_rights
+    if @user.save
+      redirect_to :back
+    end
+  end
 
 end

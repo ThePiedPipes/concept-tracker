@@ -39,7 +39,7 @@ class Concept < ActiveRecord::Base
   
   named_scope :recently_added, lambda { |*args| {:conditions => ['created_at > ?', args.first || 3.weeks.ago]} }
   named_scope :last_7_days, lambda { {:conditions => ['created_at > ?', 1.week.ago]} }
-  named_scope :unapproved, :conditions => { :status => ["Pending Approval", "Completed", "In Progress"]}
+  named_scope :unapproved, :conditions => { :status => ["Pending Approval"]}
   named_scope :approved, :conditions => ['status = ?', "Approved"]
   named_scope :completed, :conditions => ['status = ?', "Completed"]
   
