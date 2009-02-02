@@ -1,0 +1,274 @@
+body {
+background-color: #fff;
+color: #333;
+max-width: 70em;
+}
+body,p,ol,ul,td {
+font-family: "Lucida Grande","Trebuchet MS",helvetica,sans-serif;
+font-size: 13px;
+}
+a {
+color: blue;
+}
+a:visited {
+color: blue;
+}
+
+/******Header and Nav*******/
+#container {
+width: 90%;
+margin: 10px auto;
+background-color: #fff;
+color: #333;
+border: 1px solid #eaeaea;
+line-height: 130%;
+}
+#top {
+padding: .5em;
+background-color: #ddd;
+border-bottom: 1px solid #eaeaea;
+}
+#top h1 {
+padding: 0;
+margin: 10px;
+font-family: "Georgia","Trebuchet MS",Verdana,sans-serif;
+color: #555555;
+}
+#top p.stats {
+text-align: right;
+font: 75% "Monaco","Trebuchet MS",Verdana,sans-serif;
+}
+#top p.login {
+text-align: right;
+font: 75% "Monaco","Trebuchet MS",Verdana,sans-serif;
+}
+#leftnav {
+float: left;
+width: 160px;
+margin: 0;
+padding: .5em;
+}
+#leftnav p {
+margin: 0 0 1em 0;
+}
+#leftnav ul,li {
+list-style: none;
+width: 100%;
+font-size: 90%;
+}
+#leftnav li {
+margin-bottom: 3px;
+}
+#leftnav a {
+padding: 1px;
+color: blue;
+}
+
+/******Content*******/
+#content {
+border: solid 2px #b7ddf2;
+background: #ebf4fb;
+margin: 20px 10px 10px 200px;
+padding: 1em;
+}
+
+#content ul {padding:0;margin:0;}
+#content .status {
+width: 100:px;
+display: inline;
+}
+#content #filters {
+margin: 10px 0px 20px 215px;
+}
+#content #filters ul {
+padding: 2px;
+margin: 0;
+display: inline;
+border: 1px solid #999;
+background-color: #eaeaea;
+}
+#content #filters li {
+display: inline;
+list-style: none;
+padding: 0 5px 0 5px;
+}
+#content #filters {
+font-size: 80%;
+}
+#content #filters a {
+color: green;
+text-decoration: none;
+}
+#content #filters a:hover {
+text-decoration: underline;
+}
+
+/* Comments and Comment Form */
+#content .comments_block {
+border: 1px solid #999;
+background-color: #ffffff;
+padding: 20px;
+font-size: 90%;
+margin-bottom: 10px;
+}
+#content .comment {
+margin-bottom: 10px;
+}
+textarea.comment {
+border-top: 2px solid #666666;
+border-right: 2px solid #666666;
+border-bottom: 3px solid #666666;
+background-color: #FFFFCC;
+width: 100%;
+height: 150px;
+}
+#content .signature {
+font: 75% "Monaco","Trebuchet MS",Verdana,sans-serif;
+color: red;
+font-size: 100%;
+}
+#content .official_response {
+font-weight: bold;
+margin-left: 25px;
+background-color: yellow;
+}
+#content h2 {
+margin: 0 0 .5em 0;
+}
+#content .right_float {
+background-color: #666666;
+font: 75% "Lucida Grande","Trebuchet MS",Verdana,sans-serif;
+float: right;
+}
+#content .total {
+border-bottom: 1px solid #666666;
+}
+#content #checklist {
+background-color: #FFFFCC;
+padding: 10px;
+margin-bottom: 10px;
+}
+#content #checklist span {
+margin-right: 30px;
+margin-left: 30px;
+font: 90% "Monaco","Trebuchet MS",Verdana,sans-serif;
+}
+#content #checklist .red {
+background-color: #FFCCFF;
+}
+#content #pagination {
+font-size: 80%;
+font-weight: bold;
+border-top: 2px solid #666666;
+margin-top: 5px;
+}
+
+/******Footer*******/
+#footer {
+clear: both;
+margin: 0;
+padding: .5em;
+color: #333;
+background-color: #FFCCCC;
+border-top: 1px solid #eaeaea;
+}
+
+/******Dashboards*******/
+#dashboard table {
+border: none;
+}
+#dashboard tr.top {
+border-bottom: 4px solid #666;
+font: 90% "Monaco","Trebuchet MS",Verdana,sans-serif;
+text-align: left;
+padding: 2px;
+}
+#dashboard tr.even {
+background-color: #eaeaea;
+}
+#dashboard tr.odd {
+background-color: #ffffff;
+}
+
+#dashboard td {
+border: none;
+width: 100%;
+font: 75% "Monaco","Trebuchet MS",Verdana,sans-serif;
+vertical-align: top;
+text-align: left;
+padding: 2px;
+}
+#dashboard td.first {
+width: 100px;
+}
+#dashboard td.wide {
+width: 25%;
+}
+#dashboard td.narrow {
+width: 30px;
+text-align: center;
+}
+
+
+#dashboard a {
+color: blue;
+}
+#mini_dash_left {
+width: 350px;
+display: inline;
+background-color: #FFCCFF;
+}
+#mini_dash_right {
+width: 350px;
+display: inline;
+margin-left: 30px;
+background-color: #FFCCFF;
+}
+
+/******Errors*******/
+pre {
+background-color: #eee;
+padding: 10px;
+font-size: 11px;
+}
+.fieldWithErrors {
+padding: 1px;
+background-color: red;
+display: table;
+}
+.error_message {
+margin:0;
+padding: 0;
+color: red;
+display: inline;
+text-align:left;
+}
+
+.field_error { display:inline;}
+
+#errorExplanation {
+width: 95%;
+border: 2px solid red;
+padding: 7px;
+padding-bottom: 12px;
+margin-bottom: 20px;
+background-color: #f0f0f0;
+}
+#errorExplanation h2 {
+text-align: left;
+font-weight: bold;
+padding: 5px 5px 5px 15px;
+font-size: 12px;
+margin: -7px;
+background-color: #c00;
+color: #fff;
+}
+#errorExplanation p {
+color: #333;
+margin-bottom: 0;
+padding: 5px;
+}
+#errorExplanation ul li {
+font-size: 12px;
+list-style: square;
+}

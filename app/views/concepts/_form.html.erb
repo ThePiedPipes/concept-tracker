@@ -1,117 +1,163 @@
-<% form_for @concept, :html => { :multipart => true } do |f| %>
+<% form_for @concept, :html => {:style => "margin:0;padding:0;", :multipart => true } do |f| %>
 <%= f.error_messages %>
 
-<p>Basic details</p>
-<%= f.label :title %>
-<%= f.text_field :title %>
+<fieldset>
+	<legend>Basic details</legend>
+	<p>
+		<label>Title<span class="required">*</span></label>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<label>Summary	<span class="required">*</span></label>
+		<%= f.text_area :summary %>
+	</p>
+	<p>
+		<label>Objectives</label>
+		<%= f.text_area :objectives %>
+	</p>
+</fieldset>
 
-<%= f.label :summary %>
-<%= f.text_area :summary, :size => 10 %>
+<fieldset>
+	<legend>Department Checks</legend>
+		<div id="strip">
+			<span class="strip">
+			<%= f.check_box :consulted_legal %>
+			<label class="choice">Compliance</label>
+			</span>
+			<span class="strip">
+			<%= f.check_box :consulted_marketing %>
+			<label class="choice">Marketing</label>
+			</span>
+			<span class="strip">
+			<%= f.check_box :design_needed %>
+			<label class="choice">Design</label>
+			</span>
+			<span class="strip">
+			<%= f.check_box :moderation_requirement %>
+			<label class="choice">Community</label>
+			</span>
+			<span class="strip">
+			<%= f.check_box :subject_to_tx %>
+			<label class="choice">Subject to TX</label>
+			</span>
+		</div>
+</fieldset>
 
-<%= f.label :objectives %>
-<%= f.text_area :objectives, :size => 10 %>
+<% if current_user.is_admin? %>
 
-<p>Checklist from relevant departments</p>
+<fieldset id="admin">
+	<legend>Admins Only</legend>
+	<label>Status</label>
+	<%= select_from_statuses %>
+</fieldset>
 
-<%= f.label :consulted_legal %>
-<%= f.check_box :consulted_legal %>
-
-<%= f.label :consulted_marketing %>
-<%= f.check_box :consulted_marketing %>
+<% end -%>
 
 
-<%= f.label :design_needed %>
-<%= f.check_box :design_needed %>
+<fieldset>
+	<legend>Miscellaneous information</legend>
+	<p>
+		<label>Vertical</label>
+		<%= select_from_verticals %>
+	</p>
+	<p>
+		<label>Deadline<span class="required">*</span></label>
+		<%= f.date_select :deadline %>
+	</p>
+</fieldset>
 
-<%= f.label :moderation_requirement %>
-<%= f.check_box :moderation_requirement %>
+<fieldset id="columns">
+	<legend>Cost Breakdown</legend>
+<h5>Resource Days</h5>
+	<p id="strip">
+		
 
-<%= f.label :subject_to_tx %>
-<%= f.check_box :subject_to_tx %>
-<div class="spacer"></div>
+		<%= f.text_field :est_days_dev %>
+		<label>Dev</label>
+
+		<%= f.text_field :est_days_editorial %>
+		<label>Editorial</label>
+		
+		<%= f.text_field :est_days_pm %>
+		<label>Proj. Man</label>
+
+		<%= f.text_field :est_days_design %>
+		<label>Design</label>
+
+		<%= f.text_field :est_days_ia %>
+		<label>IA</label>
+
+		<%= f.text_field :est_days_legal %>
+		<label>Legal</label>
+	</p>	
+<% if :action == 'edit' %>
+	<span class="total">Total days: <%= total_resource_days %></span>
+	<% end -%>
+	
+	<h5>Additional Costs</h5>
+	
+	<p>
+		<label>3rd Party Costs</label>
+		<%= f.text_field :est_cost_external  %>
+	</p>
+</fieldset>
+
+<fieldset>
+	<legend>Budget</legend>
+	<p>
+		<label>Budget Name</label>
+		<%= select_from_budgets %>
+	</p>
+	
+	<p>
+		<label>Amount to Spend</label>
+		<%= f.text_field :budget  %>
+	</p>
 </fieldset>
 
 
-<%= f.label :vertical %>
-<%= select_from_verticals %>
-<div class="spacer"></div>
+<fieldset>
+	<legend>Targets</legend>
+	<p>
+		<label>Traffic Estimate</label>
+		<%= f.text_field :traffic_estimate  %>
+		<small>Imps/Visits per month</small>
+	</p>
+	<p>
+		<label>Revenue Estimate</label>
+		<%= f.text_field :revenue_estimate  %>
+		<small>per month</small>
+	</p>
+</fieldset>
 
 
-<% if current_user.is_admin? %>
-<p>For Admin Only</p>
-<%= f.label :status %>
-<%= select_from_statuses %>
-<div class="spacer"></div>
-<% end -%>
+
+<fieldset>
+	<legend>Contacts</legend>
+
+	<p>
+		<label>Tech Contact</label>
+		<%= f.text_field :poc_tech %>
+	</p>
+	<p>
+		<label>Business Contact</label>
+		<%= f.text_field :poc_business %>
+	</p>
+</fieldset>
+
+<fieldset>
+<legend>Attachment</legend>
+<div>Attach a Document With This Concept</div>
 
 
 
-<p>Miscellaneous information</p>
-<%= f.label :deadline %>
-<%= f.date_select :deadline %>
-<div class="spacer"></div>
+<%= f.file_field :document, :class => "field file large" %>
+<p class="instruct"><small>Word or JPEG Documents Only</small></p>
 
-<p>Cost Breakdown</p>
-<div id="cost_breakdown">
-<div class="num"> '3rd Party Costs' 
-<span class="small">(eg. 1000)</span></div>
-<%= f.text_field :est_cost_external, :class => 'num' %>
-
-<%= f.label 'Est Days Development' %>
-<%= f.text_field :est_days_dev, :class => 'num' %>
-
-<%= f.label 'Est Days Editorial' %>
-<%= f.text_field :est_days_editorial, :class => 'num' %>
-
-<%= f.label 'Est Days Proj. Man.' %>
-<%= f.text_field :est_days_pm, :class => 'num' %>
-
-<%= f.label 'Est Days Design' %>
-<%= f.text_field :est_days_design, :class => 'num' %>
-
-<%= f.label 'Est Days IA' %>
-<%= f.text_field :est_days_ia, :class => 'num' %>
-
-<%= f.label 'Est Days Legal' %>
-<%= f.text_field :est_days_legal, :class => 'num' %>
-<div class="spacer"></div>
-	
-<% if :action == 'edit' %>
-<span class="total">Total days: <%= total_resource_days %></span>
-<% end -%>
-
-<div class="num">Budget
-<span class="small">(eg. 1000)</span>
-</div>
-<%= f.text_field :budget %>
-<div class="spacer"></div>
-
-</div>
-
-<p>Traffic and Revenue Estimates</p>
-
-<%= f.label :traffic_estimate %>
-<%= f.text_field :traffic_estimate %>
-
-<%= f.label :revenue_estimate %>
-<%= f.text_field :revenue_estimate %>
-
-<div class="spacer"></div>
+</fieldset>
+<li class="buttons">
+<%= f.submit "Send", :class => "btTxt" %>
 
 
-<p>People</p>
-<%= f.label 'Tech Point of Contact' %>
-<%= f.text_field :poc_tech %>
 
-<%= f.label 'Business Point of Contact' %>
-<%= f.text_field :poc_business %>
-<div class="spacer"></div>
-
-
-<p>Attach a document</p>
-<%= f.file_field :document %>
-<div class="spacer"></div>
-
-<%= f.submit "Send", :class => 'mf_button' %>
-<div class="spacer"></div>
 <% end %>

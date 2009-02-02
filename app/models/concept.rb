@@ -17,10 +17,11 @@ class Concept < ActiveRecord::Base
   before_update :validate
   
   # validations
-  #validates_presence_of :budget, :on => :create, :message => "must have a budget"
-  validates_presence_of :title, :on => :create, :message => "Title can't be blank"
-  #validates_presence_of :summary, :on => :create, :message => "Summary can't be blank"
-  validates_presence_of :deadline, :on => :create, :message => "Deadline can't be blank"
+  validates_presence_of :budget, :on => :create, :message => "must have a budget"
+  validates_uniqueness_of :title
+  validates_presence_of :title, :on => :create, :message => "can't be blank"
+  validates_presence_of :summary, :on => :create, :message => "can't be blank"
+  validates_presence_of :deadline, :on => :create, :message => "can't be blank"
   validates_associated :owner, :on => :create
   validates_numericality_of :est_days_dev,
                             :est_days_editorial, 
@@ -29,7 +30,7 @@ class Concept < ActiveRecord::Base
                             :est_days_ia, 
                             :est_days_design,
                             :est_days_pm,
-                            :on => :create, :message => "Must be a number",
+                            :on => :create, :message => "must be a number",
                             :allow_nil => true
 
   # named scope finders
