@@ -1,9 +1,24 @@
 	<div id="dashboard">
 		<h3><%=h @user.login  %></h3>
 		<table>
-			<th>Concept Title</th>
-			<th>Status</th>
-			<th>Updated Last At</th>
+			<thead>
+			<tr>
+				<th scope="col">Concept Title</th>
+				<th scope="col">Status</th>
+			    <th scope="col">Updated Last At</th>
+			    <th scope="col">-</th>
+			 
+			</tr>
+
+			<colgroup>
+			<col id="titleCol" />
+			<col id="statusCol" />
+			<col id="createdCol" />
+			</colgroup>
+
+
+			</thead>
+<tbody>
 		<% if !@concepts.blank? %>
 		  <% for concept in @concepts %>
 		<tr>
@@ -27,5 +42,6 @@
 		<% else %>
 
 		<% end %>
+		</tbody>
 		</table>
 	</div>

@@ -38,7 +38,7 @@ class Concept < ActiveRecord::Base
   # the firt time the class is called, the Date method will be called,
   # meaning a stale time would be kept unintentionally.
   
-  named_scope :recently_added, lambda { |*args| {:conditions => ['created_at > ?', args.first || 3.weeks.ago]} }
+  named_scope :recently_added, lambda { |*args| {:conditions => ['created_at > ?', args.first || 1.month.ago]} }
   named_scope :last_7_days, lambda { {:conditions => ['created_at > ?', 1.week.ago]} }
   named_scope :unapproved, :conditions => { :status => ["Pending Approval"]}
   named_scope :approved, :conditions => ['status = ?', "Approved"]

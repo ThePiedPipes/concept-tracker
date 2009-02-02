@@ -11,18 +11,31 @@
 
 <div id="dashboard">
 <table>
-  <tr class="top">
-	<th>Title</th>
-	<th>Owner</th>
-    <th>Created</th>
-    <th>Vertical</th>
-    <th>Status</th>
-    <th>Deadline</th>
-    <th>Budget</th>
-  </tr>
+	<thead>
+	<tr>
+		<th scope="col">Title</th>
+		<th scope="col">Owner</th>
+	    <th scope="col">Created</th>
+	    <th scope="col">Vertical</th>
+	    <th scope="col">Status</th>
+	    <th scope="col">Deadline</th>
+	    <th scope="col">Budget</th>
+	</tr>
+	
+	<colgroup>
+	<col id="titleCol" />
+	<col id="ownerCol" />
+	<col id="createdCol" />
+	<col id="verticalCol" />
+	<col id="deadlineCol" />
+	<col id="budgetCol" />
+	</colgroup>
+	
+	
+	</thead>
 
 
-
+<tbody>
   
 
 <% if !@concepts.blank? %>
@@ -50,6 +63,8 @@
 <% else %>
 	<%= link_to "Be the first to create a concept", new_concept_path %>
 <% end %>
+</tbody>
+
 </table>
 <div id="pagination">
 	<%= will_paginate @concepts %>

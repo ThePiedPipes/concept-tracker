@@ -1,0 +1,48 @@
+table {
+  border-collapse: collapse;
+  width: 60em;
+  border: 1px solid #666;
+}
+
+caption {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+col {
+  border-right: 1px solid #ccc;
+}
+
+col#albumCol {
+  border: none;
+}
+
+thead {
+  background: #ccc url(../images/bar.gif) repeat-x left center;
+  border-top: 1px solid #a5a5a5;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+th {
+  font-weight: normal;
+  text-align: left;
+}
+
+th, td {
+  padding: 0.1em 1em;
+}
+
+.odd {
+  background-color:#edf5ff;
+}
+
+tr:hover {
+  background-color:#3d80df;
+  color: #fff;
+}
+
+thead tr:hover {
+  background-color: transparent;
+  color: inherit;
+}

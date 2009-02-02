@@ -1,36 +1,50 @@
 <h1>Users panel</h1>
-<table id="dashboard" border="0" cellspacing="5" cellpadding="5">
-	<tr class="top">
-		<th>Name</th>
-		<th>Team</th>
-		<th>Admin?</th>
-		<th>Approver?</th>
-		<th>Projects</th>
+<table cellspacing="0">
+	<thead>
+	<tr>
+		<th scope="col">Name</th>
+		<th scope="col">Team</th>
+	    <th scope="col">Admin?</th>
+	    <th scope="col">Approver?</th>
+	    <th scope="col"># Projects</th>	 
 	</tr>
+
+	<colgroup>
+	<col id="titleCol" />
+	<col id="statusCol" />
+	<col id="createdCol" />
+	<col id="adminCol" />
+	<col id="approverCol" />
+	</colgroup>
+
+
+	</thead>
+	<tbody>
 	<% if !@users.blank? %>
 	  <% for user in @users %>
 	    
-			<tr class="<%= cycle("even", "odd") -%>">
-				<td class="first"><%= link_to user.login, user_path(user) %></td>
-				<td class="first"><%= user.team %></td>
+			<tr>
+				<td><%= link_to user.login, user_path(user) %></td>
+				<td><%= user.team %></td>
 				<% if current_user.is_admin? %>
 					<% if user.is_admin? %>
-					<td class="wide"><%= link_to('Remove from Admins', {:action => 'remove_from_admin', :controller => 'users', :id => user}, :method => 'post') %></td>
+					<td><%= link_to('Remove from Admins', {:action => 'remove_from_admin', :controller => 'users', :id => user}, :method => 'post') %></td>
 					<% else %>
-					<td class="wide"><%= link_to('Add to Admins', {:action => 'add_to_admin', :controller => 'users', :id => user}, :method => 'post') %></td>
+					<td><%= link_to('Add to Admins', {:action => 'add_to_admin', :controller => 'users', :id => user}, :method => 'post') %></td>
 					<% end -%>
 					<% if user.is_approver? %>
-					<td class="wide"><%= link_to('Remove from Approvers', {:action => 'remove_from_approvers', :controller => 'users', :id => user}, :method => 'post') %></td>
+					<td><%= link_to('Remove from Approvers', {:action => 'remove_from_approvers', :controller => 'users', :id => user}, :method => 'post') %></td>
 					<% else %>
-					<td class="wide"><%= link_to('Add to Approvers', {:action => 'add_to_approvers', :controller => 'users', :id => user}, :method => 'post') %></td>				
+					<td><%= link_to('Add to Approvers', {:action => 'add_to_approvers', :controller => 'users', :id => user}, :method => 'post') %></td>				
 					<% end -%>
 				<% end -%>
-				<td class="narrow"><%= user.concepts.size %></td>
+				<td><%= user.concepts.size %></td>
 			</tr>
 
 	  <% end %>
 	<% else %>
 	  
 	<% end %>
+	</tbody>
 </table>
 

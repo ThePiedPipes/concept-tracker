@@ -1,7 +1,7 @@
 body {
 background-color: #fff;
 color: #333;
-max-width: 70em;
+max-width: 90em;
 }
 body,p,ol,ul,td {
 font-family: "Lucida Grande","Trebuchet MS",helvetica,sans-serif;
@@ -173,46 +173,15 @@ background-color: #FFCCCC;
 border-top: 1px solid #eaeaea;
 }
 
-/******Dashboards*******/
-#dashboard table {
-border: none;
-}
-#dashboard tr.top {
-border-bottom: 4px solid #666;
-font: 90% "Monaco","Trebuchet MS",Verdana,sans-serif;
-text-align: left;
-padding: 2px;
-}
-#dashboard tr.even {
-background-color: #eaeaea;
-}
-#dashboard tr.odd {
-background-color: #ffffff;
-}
-
-#dashboard td {
-border: none;
-width: 100%;
-font: 75% "Monaco","Trebuchet MS",Verdana,sans-serif;
-vertical-align: top;
-text-align: left;
-padding: 2px;
-}
-#dashboard td.first {
-width: 100px;
-}
-#dashboard td.wide {
-width: 25%;
-}
-#dashboard td.narrow {
-width: 30px;
-text-align: center;
-}
-
 
 #dashboard a {
 color: blue;
 }
+
+#dashboard a:hover {
+	color:#ffffff;
+}
+
 #mini_dash_left {
 width: 350px;
 display: inline;
@@ -231,24 +200,21 @@ background-color: #eee;
 padding: 10px;
 font-size: 11px;
 }
-.fieldWithErrors {
-padding: 1px;
-background-color: red;
-display: table;
-}
+
 .error_message {
 margin:0;
 padding: 0;
-color: red;
+color: #FF9999;
 display: inline;
 text-align:left;
+margin-left:10px;
 }
 
-.field_error { display:inline;}
+.field_error { display:inline; }
 
 #errorExplanation {
 width: 95%;
-border: 2px solid red;
+border: 2px solid #FF9999;
 padding: 7px;
 padding-bottom: 12px;
 margin-bottom: 20px;
@@ -260,7 +226,7 @@ font-weight: bold;
 padding: 5px 5px 5px 15px;
 font-size: 12px;
 margin: -7px;
-background-color: #c00;
+background-color: #FF9999;
 color: #fff;
 }
 #errorExplanation p {
@@ -270,5 +236,7 @@ padding: 5px;
 }
 #errorExplanation ul li {
 font-size: 12px;
-list-style: square;
+font-weight:bold;
+padding-left:20px;
+list-style: none;
 }
