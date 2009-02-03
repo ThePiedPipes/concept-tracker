@@ -204,10 +204,13 @@ font-size: 11px;
 .error_message {
 margin:0;
 padding: 0;
-color: #FF9999;
 display: inline;
 text-align:left;
 margin-left:10px;
+  font-weight: bold;
+  color:#760000;
+  padding-left: 18px;
+  background: url(../images/error.png) no-repeat left top;
 }
 
 .field_error { display:inline; }
