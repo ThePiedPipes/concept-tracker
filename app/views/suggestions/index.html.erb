@@ -1,13 +1,17 @@
 <h2>Suggestion Box</h2>
 <div id="dashboard">
 <table>
+<thead>	
   <tr>
-    <th>Issue</th>
-    <th>Status</th>
-    <th>From</th>
+    <th scope="col">Issue</th>
+    <th scope="col">Status</th>
+    <th scope="col">From</th>
 
-    <th>Date</th>
+    <th scope="col">Date</th>
   </tr>
+
+</thead>
+<tbody>
 <% if !@suggestions.blank? %>
 	<% for suggestion in @suggestions %>
 	  <tr>
@@ -37,6 +41,7 @@
 <% else %>
   
 <% end %>
+</tbody>
 </table>
 
 <br />
