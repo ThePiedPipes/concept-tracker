@@ -1,19 +1,20 @@
 <h2>People</h2>
-<div id="dashboard">
 	<table>
-		<th>Name</th>
-		<th>Concepts</th>
+		<thead>
+		<th scope="col">Name</th>
+		<th scope="col">Concepts</th>
+	</thead>
+	<tbody>
 	<% if !@users.blank? %>
 	  <% for person in @users %>
 	<tr>
 		<td><%= person.login %></td>
 		<td><%= link_to(person.concepts.count, user_path(person)) %></td>
 	</tr>
-
-	  <% end %>
+	<% end %>
 	<% else %>
 
 	<% end %>
-	</table>	
-</div>
+	</tbody>
+	</table>
 
