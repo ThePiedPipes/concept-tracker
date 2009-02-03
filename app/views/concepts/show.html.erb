@@ -2,79 +2,44 @@
 <%= link_to_previous_concept %>
 
 <h1><%=h @concept.title %></h1>
-<div class="status">
-	<b>Status:</b>
-	<% if @concept.status == 'Approved' %>
-  		<div class="status" style="background-color:#99FF99;">
-	<% elsif @concept.status == 'Rejected' %>
-		<div class="status" style="background-color:#FF9999;">
-	<% elsif @concept.status == 'With Compliance' %>
-		<div class="status" style="background-color:#FFFFCC;">
-	<% else %>
-		<div>
-	<% end -%>
-	  <%=h @concept.status %>
-		</div>
-</div>
-<% unless @concept.document_file_name.nil? %>
-<div id="attachment">
-	Attachment:
-	<%= link_to @concept.document_file_name, @concept.document.url %>
-</div>
-<% end -%>
+<hr class="heavy" />
 
-<div id="right_float">
-	<%=h @concept.approval_meeting.strftime('%D')  %>
-</div>
+<div id="mainContent">
+
+
 <p>
-  <b>Summary:</b>
-  <%=h @concept.summary %>
+  <h3>Summary</h3>
+  <%= simple_format(@concept.summary) %>
 </p>
 
 <p>
-  <b>Objectives:</b>
-  <%=h @concept.objectives %>
+  <h3>Objectives</h3>
+  <%= simple_format(@concept.objectives) %>
 </p>
 
-<p>
-  <b>Vertical:</b>
-  <%=h @concept.vertical %>
-</p>
+<div id="strip">
+	<h4>Costs, Resources and Budget</h4>
+	<p>Total resource days requested: <%=h @concept.total_resource_days %>
+		<ul>
+			<li>NM Tech:<%= @concept.est_days_dev %></li>
+			<li>Editorial:<%= @concept.est_days_editorial %></li>
+			<li>Design:<%= @concept.est_days_design %></li>
+			<li>IA:<%= @concept.est_days_ia %></li>			
+		</ul>
+	</p>
 
-<p>
-  <b>Deadline:</b>
-  <%=h @concept.deadline %>
-</p>
-
-<div id="costs">
-	<span>Total resource days requested: <%=h @concept.total_resource_days %></span>
-</div>
-
-<p>
-  <b>Budget:</b>
-  <%=h @concept.budget %>
-</p>
-
-<div id="checklist">
-	<h3>Department checks</h3>
-	<% if !@concept.consulted_legal %>
-	<span class="red">
-	<% else -%>
-	<span>
-	<% end -%>
-	 Consulted legal: 
-	  <%=h !@concept.consulted_legal ? "N" : "Y" %>
-	</span>
+	<h4>Budget</h4>
+	  &pound;<%=h @concept.budget %>
+	</p>
 	
-	<% if !@concept.consulted_marketing %>
-	<span class="red">
-	<% else -%>
-	<span>
-	<% end -%>
-	 Consulted marketing: 
-	  <%=h !@concept.consulted_marketing ? "N" : "Y" %>
-	</span>
+	<h4>Budget Name</h4>
+	<p>
+	  <%=h @concept.budget_name %>
+	</p>
 </div>
+
+
+
 
 
 
@@ -84,6 +49,106 @@
 
 <%= render :partial => 'comments' %>
 
+<!-- end mainContent div -->
+</div>
 
+<div id="secondaryContent">
+	<h4>Status</h4>
+	
+	<% if @concept.status == 'Approved' || 'Completed' %>
+	<p class="status" style="background-color:#99FF99;">
+	<% elsif @concept.status == 'Rejected' %>
+	<p class="status" style="background-color:#FF9999;">
+	<% elsif @concept.status == 'With Compliance' %>
+	<p class="status" style="background-color:#FFFFCC;">
+	<% else %>
+	<p class="status">
+	<% end -%>
+	<%=h @concept.status %>
+	<%= image_tag "/images/small_green_check.gif" %>
+	</p>
+	<% unless @concept.status == "Completed" %>
+	<h4>Approval Meeting Date</h4>
+
+	<p>
+	<%=h @concept.approval_meeting.to_s(:long)  %>
+	</p>
+	<% end -%>
+	
+	<h4>Vertical</h4>
+	<p>
+	  <%=h @concept.vertical %>
+	</p>
+
+	<h4>Deadline</h4>
+	<p>
+	  <%=h @concept.deadline.to_s(:long) %>
+	</p>
+	
+	<h4>Checklist</h4>
+	<ul>
+		<li>
+			
+			<% if !@concept.consulted_legal %>
+			<%= image_tag "/images/small_red_cross.gif" %>
+			<% else -%>
+			<%= image_tag "images/small_green_check.gif" %>
+			<% end -%>
+			Consulted legal
+		</li>
+		<li>
+			<% if !@concept.consulted_marketing %>
+			<%= image_tag "/images/small_red_cross.gif" %>
+			<% else -%>
+			<%= image_tag "/images/small_green_check.gif" %>
+			<% end -%>
+			Consulted marketing
+		</li>
+		<li>
+			
+			<% if !@concept.design_needed %>
+			<%= image_tag "/images/small_red_cross.gif" %>
+			<% else -%>
+			<%= image_tag "/images/small_green_check.gif" %>
+			<% end -%>
+			Needs designs
+		</li>
+		<li>
+			<% if !@concept.subject_to_tx %>
+			<%= image_tag "/images/small_red_cross.gif" %>
+			<% else -%>
+			<%= image_tag "/images/small_green_check.gif" %>
+			<% end -%>
+			Subject to TX
+		</li>
+		<li>
+			<% if !@concept.moderation_requirement %>
+			<%= image_tag "/images/small_red_cross.gif" %>
+			<% else -%>
+			<%= image_tag "/images/small_green_check.gif" %>
+			<% end -%>
+			Needs Moderation
+		</li>
+		<li>
+			
+			<% if !@concept.using_video %>
+			<%= image_tag "/images/small_red_cross.gif" %>
+			<% else -%>
+			<%= image_tag "/images/small_green_check.gif" %>
+			<% end -%>
+			Using Video
+		</li>
+	</ul>
+	
+	<% unless @concept.document_file_name.nil? %>
+	<h4>Attachment</h4>
+	<p id="attachment">
+		<%= link_to @concept.document_file_name, @concept.document.url %>
+	</p>
+	<% end -%>
+</div>
+<div class="clear">
 
 <%= link_to 'Edit', edit_concept_path(@concept) %> | <%= link_to 'Back', concepts_path %>
+
+</div>

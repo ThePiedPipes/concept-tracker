@@ -64,6 +64,12 @@ padding: 1px;
 color: blue;
 }
 
+hr.heavy {
+height: 4px;
+border: none;
+background-color: #999;
+}
+
 /******Content*******/
 #content {
 border: solid 2px #b7ddf2;
@@ -72,11 +78,62 @@ margin: 20px 10px 10px 200px;
 padding: 1em;
 }
 
-#content ul {padding:0;margin:0;}
-#content .status {
-width: 100:px;
+#mainContent {
+width: 66%;
+margin: 0;
+float: left;
+}
+
+#mainContent #strip {
+	border-top: 5px solid #999;
+	border-bottom: 5px solid #999;
+	background-color: #DDD;
+	padding: 5px 10px;
+}
+
+#secondaryContent {
+width: 31%;
+min-width: 10em;
+display: inline; /* :KLUDGE: Fixes IE double margin float bug */
+  float: right;
+border-left: 2px solid gray;
+border-bottom: 2px solid gray;
+padding: 0 0 40px 0;
+background-color: #AED1FF;
+}
+
+#secondaryContent p, ul {
+margin: 0 20px;
+padding: 3px;
+}
+
+#secondaryContent li {
+margin-left: 10px;
+width: 75%;
+padding: 3px 20px;
+border-bottom: 1px solid #666;
+}
+
+#secondaryContent .lt {
 display: inline;
 }
+
+#secondaryContent h4 {
+background-color: #666666;
+color: #ffffff;
+padding: 3px;
+margin: 0 0 10px 0px;
+}
+
+#secondaryContent p.status {
+margin-bottom: 10px;
+}
+
+#content ul {
+padding: 0;
+margin: 0;
+}
+
 #content #filters {
 margin: 10px 0px 20px 215px;
 }
@@ -105,7 +162,6 @@ text-decoration: underline;
 
 /* Comments and Comment Form */
 #content .comments_block {
-border: 1px solid #999;
 background-color: #ffffff;
 padding: 20px;
 font-size: 90%;
@@ -119,7 +175,6 @@ border-top: 2px solid #666666;
 border-right: 2px solid #666666;
 border-bottom: 3px solid #666666;
 background-color: #FFFFCC;
-width: 100%;
 height: 150px;
 }
 #content .signature {
@@ -179,7 +234,7 @@ color: blue;
 }
 
 #dashboard a:hover {
-	color:#ffffff;
+color: #ffffff;
 }
 
 #mini_dash_left {
@@ -202,18 +257,20 @@ font-size: 11px;
 }
 
 .error_message {
-margin:0;
+margin: 0;
 padding: 0;
 display: inline;
-text-align:left;
-margin-left:10px;
-  font-weight: bold;
-  color:#760000;
-  padding-left: 18px;
-  background: url(../images/error.png) no-repeat left top;
+text-align: left;
+margin-left: 10px;
+font-weight: bold;
+color: #760000;
+padding-left: 18px;
+background: url(../images/error.png) no-repeat left top;
 }
 
-.field_error { display:inline; }
+.field_error {
+display: inline;
+}
 
 #errorExplanation {
 width: 95%;
@@ -239,7 +296,7 @@ padding: 5px;
 }
 #errorExplanation ul li {
 font-size: 12px;
-font-weight:bold;
-padding-left:20px;
+font-weight: bold;
+padding-left: 20px;
 list-style: none;
 }
