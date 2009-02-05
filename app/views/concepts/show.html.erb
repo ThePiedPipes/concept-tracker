@@ -18,7 +18,18 @@
 </p>
 
 <div id="strip">
-	<h4>Costs, Resources and Budget</h4>
+	<h3>Costs, Resources and Budget</h3>
+	<div class="rt">
+		<p>
+		  <%=h @concept.budget_name %>'s budget
+		</p>
+	</div>
+	<h4>Budget</h4>
+	  <p class="large">&pound;<%=h @concept.budget %></p>
+	
+
+	
+	
 	<p>Total resource days requested: <%=h @concept.total_resource_days %>
 		<ul>
 			<li>NM Tech:<%= @concept.est_days_dev %></li>
@@ -27,15 +38,11 @@
 			<li>IA:<%= @concept.est_days_ia %></li>			
 		</ul>
 	</p>
+	<hr />
+	<h4>Budget after costs</h4>
+	<p class="large">&pound;<%=h @concept.budget_after_costs %></p>
 
-	<h4>Budget</h4>
-	  &pound;<%=h @concept.budget %>
-	</p>
-	
-	<h4>Budget Name</h4>
-	<p>
-	  <%=h @concept.budget_name %>
-	</p>
+
 </div>
 
 

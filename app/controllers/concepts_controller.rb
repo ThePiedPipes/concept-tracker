@@ -8,10 +8,14 @@ class ConceptsController < ApplicationController
   # GET /concepts.xml
   def index
     case params[:filter]
-    when "completed" then @concepts = Concept.completed.paginate :page => params[:page], :per_page => 5
-    when "approved" then @concepts = Concept.approved.paginate :page => params[:page], :per_page => 5
-    when "unapproved" then @concepts = Concept.unapproved.paginate :page => params[:page], :per_page => 5
+    when "Completed" then @concepts = Concept.completed.paginate :page => params[:page], :per_page => 5
+    when "Approved" then @concepts = Concept.approved.paginate :page => params[:page], :per_page => 5
+    when "Unapproved" then @concepts = Concept.unapproved.paginate :page => params[:page], :per_page => 5
     else   @concepts = Concept.paginate :page => params[:page], :per_page => 5
+    end
+    
+    if params[:query]
+      @concepts = Concept.find(:all, :conditions => ["title LIKE ?", "%#{params[:query]}%"]).paginate :page => params[:page], :per_page => 5 
     end
     @user = current_user
 

@@ -84,6 +84,16 @@ margin: 0;
 float: left;
 }
 
+#mainContent p.large {
+	font: 170% "Georgia", "Trebuchet MS", Verdana, sans-serif;
+}
+
+#mainContent .rt {
+	float:right;
+	background-color: #fff;
+	padding:5px;
+}
+
 #mainContent #strip {
 	border-top: 5px solid #999;
 	border-bottom: 5px solid #999;
@@ -135,7 +145,7 @@ margin: 0;
 }
 
 #content #filters {
-margin: 10px 0px 20px 215px;
+margin: 10px 0px 20px 415px;
 }
 #content #filters ul {
 padding: 2px;

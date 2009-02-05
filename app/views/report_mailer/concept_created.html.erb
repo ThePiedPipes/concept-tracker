@@ -3,3 +3,11 @@
 <hr />
 <a href="http://ec2-75-101-188-236.compute-1.amazonaws.com<%= concept_path(@concept) %>"><%= @concept.title %></a>
 <p>created by: <%= @concept.owner.login %></p>
+<% if !@concept.attributes.keys.blank? -%>
+<% for attribute in @concept.attributes.keys.sort -%>
+<strong><%=h (attribute) -%></strong>:  <%=h @concept.send(attribute.to_sym) %>
+<% end %>
+<% else %>
+
+<% end %>
+

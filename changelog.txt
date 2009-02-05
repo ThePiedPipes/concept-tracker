@@ -29,7 +29,11 @@ COMPLETED 23 01 09 add POC, budget stuff, mod requirements, estimates for traffi
 COMPLETED 23 01 09 add SMTP server details into mailer
 COMPLETED 23 01 09 comments styled different by approval group users
 COMPLETED 28 01 09 added filters to concepts index
-
+COMPLETED 03 02 09 calculated total resource days for concept
+COMPLETED 03 02 09 admin area: add admin rights to user
+COMPLETED 03 02 09 admin area: add/remove approvers
+COMPLETED 03 02 09 tidy up departmental checklist div
+COMPLETED 03 02 09 html version of mailer
 
 
 ----deployment tasks
@@ -38,29 +42,23 @@ TODO write backup scripts once tested
 TODO change root of routes to be 'concept-tracker'
 
 
-
 ----views
 TODO convert destructive links to post requests
 TODO resource cross charging form for concepts
 TODO add poge for concept process diagram
-TODO tidy up departmental checklist div
 
 TODO create PDF of concept on creation
 TODO add saving form data in chunks
 TODO search page for concepts; filters by user
 
-TODO admin area: add admin rights to user
-
 
 ----models
 TODO add supplier model
 TODO add suppliers to concept
-TODO calculated total resource days for concept
 
 
 ----mailings
 TODO mail: reminders to all user group for new concept submissions
-TODO html version of mailer
 
 ----reports
 TODO create reports page that sends out mailers

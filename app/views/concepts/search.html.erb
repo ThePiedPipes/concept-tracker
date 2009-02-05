@@ -1,5 +1,5 @@
 <h2>Search concepts</h2>
-<% form_tag search_path, {:class => "search_form"}) do %>
+<% form_tag search_path do %>
 	<%= text_field_tag :query, params[:query] %>
 	<%= check_box_tag :subject_to_tx, '1', params[:subject_to_tx]  %>
 	<%= submit_tag "Search", :name => nil %>

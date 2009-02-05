@@ -10,11 +10,12 @@ class Concept < ActiveRecord::Base
 
   has_attached_file :document
   
-  before_save :set_status
+  
   
   # callbacks
   before_create :add_approval_meeting_date
   before_update :validate
+  before_save :set_status
   
   # validations
   validates_presence_of :budget, :on => :create, :message => "must have a budget"
@@ -75,7 +76,7 @@ class Concept < ActiveRecord::Base
   
   def budget_after_costs
     if !budget.blank?
-      budget - est_cost_external
+      est_cost_external.nil? ? budget : budget - est_cost_external
     end
   end
   
@@ -92,13 +93,13 @@ class Concept < ActiveRecord::Base
   # are accepting form data, which are strings
   def set_status
     if status.blank?
-      if (consulted_legal == true) && (consulted_marketing == true)
+      if (consulted_legal) && (consulted_marketing)
           status = "Pending Approval"
-      elsif (consulted_legal == true) && (consulted_marketing == false)
+      elsif (consulted_legal) && (!consulted_marketing)
         status = "Awaiting Marketing Approval"
-      elsif (consulted_legal == false) && (consulted_marketing == true)
+      elsif (!consulted_legal) && (consulted_marketing)
         status = "Awaiting Legal Approval"
-      elsif (consulted_legal == false) && (consulted_marketing == false)
+      elsif (!consulted_legal) && (!consulted_marketing)
         status = "Awaiting Marketing & Legal Approval"
       end
     end
